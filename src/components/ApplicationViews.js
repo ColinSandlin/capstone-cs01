@@ -43,7 +43,4 @@ const providers = {
     googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
-export default withFirebaseAuth({
-    providers,
-    firebaseAppAuth,
-})(App);
+export default withFirebaseAuth({ providers, firebaseAppAuth })(App);

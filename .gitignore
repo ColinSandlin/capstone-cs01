@@ -24,4 +24,4 @@ yarn-error.log*
 
 # Colin's files
 /src/firebaseConfig.js
-/api/hiddenKey.js
+/src/components/db/hiddenKey.js

@@ -1,46 +1,29 @@
 import React, { Component } from 'react';
-import withFirebaseAuth from 'react-with-firebase-auth'
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
-import firebaseConfig from '../firebaseConfig';
-// import logo from './logo.svg';
-// import './App.css';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import API from "./db/API";
+import Regulate from "./regulate/Regulate";
+import Coping from "./coping/Coping";
+import Stats from "./stats/Stats";
+import Entries from "./entries/Entries";
+import Contact from "./findhelp/FindHelp"
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-class App extends Component {
+
+export default class ApplicationViews extends Component {
     render() {
-        const {
-            user,
-            signOut,
-            signInWithGoogle,
-        } = this.props;
-
         return (
-            <div className="App">
-                <header className="App-header">
-                    {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                    {
-                        user
-                            ? <p>Hello, {user.displayName}</p>
-                            : <p>Please sign in.</p>
-                    }
+            <>
+                <Route exact path="/regulate" render={(props) => {
 
-                    {
-                        user
-                            ? <button onClick={signOut}>Sign out</button>
-                            : <button onClick={signInWithGoogle}>Sign in with Google</button>
-                    }
-                </header>
-            </div>
-        );
+                    return <Regulate />
+
+                }} />
+                <Route path="/coping" render={(props) => <Coping {...props} />} />
+                <Route path="/stats" render={(props) => <Stats {...props} />} />
+                <Route path="/entries" render={(props) => <Entries {...props} />} />
+                <Route path="/contact" render={(props) => <Contact {...props} />} />
+            </>
+        )
     }
 }
 
-const firebaseAppAuth = firebaseApp.auth();
-
-const providers = {
-    googleProvider: new firebase.auth.GoogleAuthProvider(),
-};
-
-export default withFirebaseAuth({ providers, firebaseAppAuth })(App);

@@ -1,17 +1,20 @@
 import React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav as blah, NavItem as blah2, NavLink as blah3, DropdownItem } from 'reactstrap';
-import { withRouter, Route, NavLink, Router, } from 'react-router';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav as blah, NavItem as blah2, DropdownItem } from 'reactstrap';
+import { withRouter, Route, Router } from 'react-router';
+import { NavLink, Redirect } from 'react-router-dom'
 import logo from '../../logo.svg'
 import secondaryLogo from '../../secondaryLogo-07.svg'
 import index from "../../index.css"
 import { stack as Menu } from 'react-burger-menu'
 
 import { IconContext } from "react-icons";
-import { FiUser, FiSearch, FiBarChart2, FiSun, FiShield } from "react-icons/fi";
+import { FiUser, FiSearch, FiBarChart2, FiSun, FiShield, FiCornerDownLeft } from "react-icons/fi";
+import { logout } from '../login/LoginHandler'
+import { Stats } from 'fs';
 
 
 let topNavStyles = {
-    backgroundColor: '#A9D3CB',
+    backgroundColor: '#2A4D59',
 };
 
 var sideNavStyles = {
@@ -21,10 +24,10 @@ var sideNavStyles = {
         height: '20px',
         right: '36px',
         top: '15px',
-        color: '#2a4d59'
+        color: '#8FC6BB'
     },
     bmBurgerBars: {
-        background: '#2a4d59'
+        background: '#8FC6BB'
     },
     bmBurgerBarsHover: {
         background: '#a90000'
@@ -38,10 +41,11 @@ var sideNavStyles = {
     },
     bmMenuWrap: {
         position: 'fixed',
-        height: '100%'
+        height: '100%',
+        borderTop: '1px solid rgba(0, 0, 0, 0.35)'
     },
     bmMenu: {
-        background: '#2a4d59',
+        background: '#466E75',
         // padding: '2.5em 1.5em 0',
         fontSize: '1.15em',
     },
@@ -57,9 +61,9 @@ var sideNavStyles = {
     },
     bmItem: {
         display: 'inline-block',
-        boxShadow: "inset 0 -1px rgba(0, 0, 0, 0.1)",
+        boxShadow: "inset 0 -1px rgba(0, 0, 0, 0.35)",
         padding: "1em",
-        color: "#8FC6BB"
+        color: "#C7E5DE"
     },
     bmOverlay: {
         background: 'rgba(0, 0, 0, 0.3)'
@@ -68,11 +72,9 @@ var sideNavStyles = {
 }
 
 
-export default class Example extends React.Component {
+export default class TopNav extends React.Component {
 
-    showSettings(event) {
-        event.preventDefault();
-    }
+
 
     render() {
 
@@ -86,17 +88,21 @@ export default class Example extends React.Component {
                     <div>
                         <img src={secondaryLogo} className="secondaryLogo" alt="logo" />
                     </div>
-                    <a id="home" className="menuItem" href="/"><FiSun style={{ marginRight: "10px", marginBottom: "5px" }} />Regulate</a>
-
-                    <a id="home" className="menuItem" href="/coping"><FiShield style={{ marginRight: "10px", marginBottom: "5px" }} />Coping Mechanisms</a>
-
-                    <a id="about" className="menuItem" href="/stats"><FiBarChart2 style={{ marginRight: "10px", marginBottom: "5px" }} />Statistics</a>
-
-                    <a id="contact" className="menuItem" href="/help"><FiSearch style={{ marginRight: "10px", marginBottom: "5px" }} />Find Help</a>
-
-                    <a onClick={this.showSettings} className="menu-item--small" href="/profile"><FiUser style={{ marginRight: "10px", marginBottom: "5px" }} />User Profile</a>
+                    <NavLink to="/regulate" className="menuItem"><FiSun style={{ marginRight: "10px", marginBottom: "5px" }} />Regulate</NavLink>
+                    <NavLink to="/coping" className="menuItem"><FiShield style={{ marginRight: "10px", marginBottom: "5px" }} />Coping Mechanisms</NavLink>
+                    <NavLink to="/stats" className="menuItem"><FiBarChart2 style={{ marginRight: "10px", marginBottom: "5px" }} />Statistics</NavLink>
+                    <NavLink to="/findhelp" className="menuItem"><FiSearch style={{ marginRight: "10px", marginBottom: "5px" }} />Find Help</NavLink>
+                    <NavLink to="/profile" className="menuItem"><FiUser style={{ marginRight: "10px", marginBottom: "5px" }} />User Profile</NavLink>
+                    <NavLink to="/login" onClick={logout} className="menuItem"><FiCornerDownLeft style={{ marginRight: "10px", marginBottom: "5px" }} />Logout</NavLink>
                 </Menu>
-            </IconContext.Provider>
+            </IconContext.Provider >
         );
     }
 }
+
+
+
+// /coping
+// /Stats
+// /findhelp
+// /profile

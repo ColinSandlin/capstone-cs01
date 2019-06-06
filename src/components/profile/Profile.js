@@ -3,11 +3,11 @@ import { withRouter } from 'react-router'
 
 
 
-export default class Stats extends Component {
+export default class Profile extends Component {
     render() {
         return (
 
-            <h1>My Stats Page</h1>
+            <h1>My Profile Page</h1>
 
 
         )

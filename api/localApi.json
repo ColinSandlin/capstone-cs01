@@ -1,220 +1,288 @@
 {
-    "contacts": [
-        {
-            "id": 0,
-            "name": "Garrett May",
-            "relationship": "Friend",
-            "phone": "205.253.2122"
-        },
-        {
-            "id": 1,
-            "name": "Jonathan Bush",
-            "relationship": "Friend",
-            "phone": "205.253.2122"
-        },
-        {
-            "id": 2,
-            "name": "Shelby Sandlin",
-            "relationship": "Spouse",
-            "phone": "205.253.2122"
-        },
-        {
-            "id": 3,
-            "name": "Troy Sandlin",
-            "relationship": "Parent",
-            "phone": "205.253.2122"
-        },
-        {
-            "id": 4,
-            "name": "Dee Sandlin",
-            "relationship": "Parent",
-            "phone": "205.253.2122"
-        },
-        {
-            "id": 5,
-            "name": "Thomas Holloway",
-            "relationship": "Friend",
-            "phone": "205.253.2122"
-        }
-    ],
-    "moods": [
-        {
-            "id": 1,
-            "name": "Thankful",
-            "categoryId": 5
-        },
-        {
-            "id": 2,
-            "name": "Joyful",
-            "categoryId": 5
-        },
-        {
-            "id": 3,
-            "name": "Peaceful",
-            "categoryId": 5
-        },
-        {
-            "id": 4,
-            "name": "Content",
-            "categoryId": 5
-        },
-        {
-            "id": 5,
-            "name": "Excited",
-            "categoryId": 5
-        },
-        {
-            "id": 6,
-            "name": "Balanced",
-            "categoryId": 4
-        },
-        {
-            "id": 7,
-            "name": "Relaxed",
-            "categoryId": 4
-        },
-        {
-            "id": 8,
-            "name": "Caring",
-            "categoryId": 4
-        },
-        {
-            "id": 9,
-            "name": "Kind",
-            "categoryId": 4
-        },
-        {
-            "id": 10,
-            "name": "Empathetic",
-            "categoryId": 4
-        },
-        {
-            "id": 11,
-            "name": "Neutral",
-            "categoryId": 3
-        },
-        {
-            "id": 12,
-            "name": "Lazy",
-            "categoryId": 3
-        },
-        {
-            "id": 13,
-            "name": "Distracted",
-            "categoryId": 3
-        },
-        {
-            "id": 14,
-            "name": "Bored",
-            "categoryId": 3
-        },
-        {
-            "id": 15,
-            "name": "Mixed Up",
-            "categoryId": 3
-        },
-        {
-            "id": 16,
-            "name": "Defeated",
-            "categoryId": 2
-        },
-        {
-            "id": 17,
-            "name": "Discouraged",
-            "categoryId": 2
-        },
-        {
-            "id": 18,
-            "name": "Isolated",
-            "categoryId": 2
-        },
-        {
-            "id": 19,
-            "name": "Hurt",
-            "categoryId": 2
-        },
-        {
-            "id": 20,
-            "name": "Powerless",
-            "categoryId": 2
-        },
-        {
-            "id": 21,
-            "name": "Angry",
-            "categoryId": 1
-        },
-        {
-            "id": 22,
-            "name": "Self Critical",
-            "categoryId": 1
-        },
-        {
-            "id": 23,
-            "name": "Disgusted",
-            "categoryId": 1
-        },
-        {
-            "id": 24,
-            "name": "Impatient",
-            "categoryId": 1
-        },
-        {
-            "id": 25,
-            "name": "Jealous",
-            "categoryId": 1
-        }
-    ],
-    "categories": [
-        {
-            "id": 5,
-            "name": "Great",
-            "score": 5
-        },
-        {
-            "id": 4,
-            "name": "Good",
-            "score": 4
-        },
-        {
-            "id": 3,
-            "name": "Meh",
-            "score": 3
-        },
-        {
-            "id": 2,
-            "name": "Not so great",
-            "score": 2
-        },
-        {
-            "id": 1,
-            "name": "Bad",
-            "score": 1
-        }
-    ],
-    "copingMechanisms": [
-        {
-            "id": 1,
-            "title": "Call Mom",
-            "url": "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            "info": "Hit her up and tell her you need someone to lean on!",
-            "info2": "(205)253-2123",
-            "categoryId": 1
-        },
-        {
-            "id": 2,
-            "title": "Go to the Gym",
-            "url": "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            "info": "Pumping some iron always helps you refocus, think, and regain energy.",
-            "info2": "YMCA Green Hills",
-            "categoryId": 1
-        },
-        {
-            "id": 3,
-            "title": "Bake Something Delicious",
-            "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            "info": "Keeping your hands busy and having a delicious project seems to do the trick",
-            "info2": "Link to Pinterest Board",
-            "categoryId": 1
-        }
-    ]
+  "users": [
+    {
+      "email": "yaboi@yaboi.com",
+      "username": "yaboi",
+      "password": "",
+      "id": "B0sOnZbKsZUIfmAZbLg7NfV5yEi2"
+    },
+    {
+      "email": "shelby.sandlin092@gmail.com",
+      "username": "ShelbySandlin",
+      "password": "",
+      "id": "c9fSqCVSJbZRqlB69t95xqwaLMJ3"
+    },
+    {
+      "email": "wes@gmail.com",
+      "username": "wessandlin",
+      "password": "",
+      "id": "s6BrDKnUPpSv1jQVu6aPr9xZMDc2"
+    }
+  ],
+  "contacts": [
+    {
+      "id": 0,
+      "userId": 1,
+      "name": "Garrett May",
+      "relationship": "Friend",
+      "phone": "205.253.2122"
+    },
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Jonathan Bush",
+      "relationship": "Friend",
+      "phone": "205.253.2122"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "name": "Shelby Sandlin",
+      "relationship": "Spouse",
+      "phone": "205.253.2122"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "name": "Troy Sandlin",
+      "relationship": "Parent",
+      "phone": "205.253.2122"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "name": "Dee Sandlin",
+      "relationship": "Parent",
+      "phone": "205.253.2122"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "name": "Thomas Holloway",
+      "relationship": "Friend",
+      "phone": "205.253.2122"
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "name": "Peyton Lowery",
+      "relationship": "Friend",
+      "phone": "205.253.2122"
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "name": "Thankful",
+      "moodCategoryId": 5
+    },
+    {
+      "id": 2,
+      "name": "Joyful",
+      "moodCategoryId": 5
+    },
+    {
+      "id": 3,
+      "name": "Peaceful",
+      "moodCategoryId": 5
+    },
+    {
+      "id": 4,
+      "name": "Content",
+      "moodCategoryId": 5
+    },
+    {
+      "id": 5,
+      "name": "Excited",
+      "moodCategoryId": 5
+    },
+    {
+      "id": 6,
+      "name": "Balanced",
+      "moodCategoryId": 4
+    },
+    {
+      "id": 7,
+      "name": "Relaxed",
+      "moodCategoryId": 4
+    },
+    {
+      "id": 8,
+      "name": "Caring",
+      "moodCategoryId": 4
+    },
+    {
+      "id": 9,
+      "name": "Kind",
+      "moodCategoryId": 4
+    },
+    {
+      "id": 10,
+      "name": "Empathetic",
+      "moodCategoryId": 4
+    },
+    {
+      "id": 11,
+      "name": "Neutral",
+      "moodCategoryId": 3
+    },
+    {
+      "id": 12,
+      "name": "Lazy",
+      "moodCategoryId": 3
+    },
+    {
+      "id": 13,
+      "name": "Distracted",
+      "moodCategoryId": 3
+    },
+    {
+      "id": 14,
+      "name": "Bored",
+      "moodCategoryId": 3
+    },
+    {
+      "id": 15,
+      "name": "Mixed Up",
+      "moodCategoryId": 3
+    },
+    {
+      "id": 16,
+      "name": "Defeated",
+      "moodCategoryId": 2
+    },
+    {
+      "id": 17,
+      "name": "Discouraged",
+      "moodCategoryId": 2
+    },
+    {
+      "id": 18,
+      "name": "Isolated",
+      "moodCategoryId": 2
+    },
+    {
+      "id": 19,
+      "name": "Hurt",
+      "moodCategoryId": 2
+    },
+    {
+      "id": 20,
+      "name": "Powerless",
+      "moodCategoryId": 2
+    },
+    {
+      "id": 21,
+      "name": "Angry",
+      "moodCategoryId": 1
+    },
+    {
+      "id": 22,
+      "name": "Self Critical",
+      "moodCategoryId": 1
+    },
+    {
+      "id": 23,
+      "name": "Disgusted",
+      "moodCategoryId": 1
+    },
+    {
+      "id": 24,
+      "name": "Impatient",
+      "moodCategoryId": 1
+    },
+    {
+      "id": 25,
+      "name": "Jealous",
+      "moodCategoryId": 1
+    }
+  ],
+  "moodCategories": [
+    {
+      "id": 5,
+      "name": "Great",
+      "score": 5
+    },
+    {
+      "id": 4,
+      "name": "Good",
+      "score": 4
+    },
+    {
+      "id": 3,
+      "name": "Meh",
+      "score": 3
+    },
+    {
+      "id": 2,
+      "name": "Not so great",
+      "score": 2
+    },
+    {
+      "id": 1,
+      "name": "Bad",
+      "score": 1
+    }
+  ],
+  "copingMechanisms": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Call Mom",
+      "url": "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "Hit her up and tell her you need someone to lean on!",
+      "info2": "(205)253-2123",
+      "moodCategoryId": 1
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Go to the Gym",
+      "url": "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "Pumping some iron always helps you refocus, think, and regain energy.",
+      "info2": "YMCA Green Hills",
+      "moodCategoryId": 1
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "Bake Something Delicious",
+      "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "Keeping your hands busy and having a delicious project seems to do the trick",
+      "info2": "Link to Pinterest Board",
+      "moodCategoryId": 2
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "title": "Do Something Kind for a Friend",
+      "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "Doing something for others removes the focus from your own struggles",
+      "info2": "Link to ideas",
+      "moodCategoryId": 1
+    }
+  ],
+  "loggedEntries": [
+    {
+      "id": 1,
+      "userId": 1,
+      "dateLogged": "9:00 am 10.12.18",
+      "moodId": 3,
+      "description": "I am at peace because I had dinner with a friend."
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "dateLogged": "10:00 am 10.12.18",
+      "moodId": 4,
+      "description": "I am content because I have perspective"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "dateLogged": "11:00 am 10.12.18",
+      "moodId": 3,
+      "description": "I am at peace because I got good test results from the Hospital"
+    }
+  ]
 }

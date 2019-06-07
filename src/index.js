@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "semantic-ui-css/semantic.min.css"
 import * as firebase from "firebase/app"
 
+import index from './index.css'
+
 const firebaseConfig = {
     apiKey: "AIzaSyAJyw3v8xuOeR2SM0B8ZRugzvqEb5h5yIM",
     authDomain: "colins-capstone-1558565262749.firebaseapp.com",
@@ -17,6 +19,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
 
 ReactDOM.render(
     <Router>

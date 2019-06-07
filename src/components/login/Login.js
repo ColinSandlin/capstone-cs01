@@ -21,12 +21,12 @@ export default class Login extends Component {
     render() {
         return (
             <Container className="login-container">
-                <Grid.Row centered columns={1}>
-                    <Grid.Column>
-                        <Segment>
+                <Grid centered columns={2} verticalAlign="middle">
+                    <Grid.Column >
+                        <Segment >
                             <Header as="h1" textAlign="center">
                                 Welcome!
-                        </Header>
+                                 </Header>
                             <Form className="login-form" onSubmit={this.submit}>
                                 <Form.Field
                                     control="input"
@@ -49,7 +49,7 @@ export default class Login extends Component {
                             </Message>
                         </Segment>
                     </Grid.Column>
-                </Grid.Row>
+                </Grid>
             </Container >
         )
     }

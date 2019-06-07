@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router'
-import ApplicationViews from "../ApplicationViews"
 import TopNav from '../nav/TopNav';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Login from '../login/Login';
@@ -10,15 +9,46 @@ import Coping from '../coping/Coping'
 import Stats from '../stats/Stats'
 import FindHelp from '../findhelp/FindHelp'
 import Profile from '../profile/Profile'
-import { getUserFromLocalStorage, logout } from '../login/LoginHandler'
+import NewRegulate from '../regulate/NewRegulate'
+import { getUserFromLocalStorage, logout, getUser } from '../login/LoginHandler'
+import API from "../db/API"
 
-
+let greatArray;
 
 class Home extends Component {
     state = {
-        user: getUserFromLocalStorage()
+        user: getUserFromLocalStorage(),
+        moods: []
     }
 
+    componentDidMount() {
+        const newState = {
+            user: getUserFromLocalStorage(),
+            moods: [],
+            greatMoods: [],
+            goodMoods: []
+        }
+
+        // API.getSpecificMood(5)
+        // .then(moods => newState.moods = moods)
+        // .then(moods => moods.filter(mood => {
+        //     return ((mood.moodCategoryId === 5))
+        // }))
+        // .then(greatMoods => newState.greatMoods = greatMoods)
+        // .then(() => this.setState(newState))
+
+        API.getSpecificMood(5)
+            .then(greatmoods => newState.greatMoods = greatmoods)
+            .then(() => API.getSpecificMood(4))
+            .then(goodmoods => newState.goodMoods = goodmoods)
+            .then(() => API.getSpecificMood(3))
+            .then(okaymoods => newState.okayMoods = okaymoods)
+            .then(() => API.getSpecificMood(2))
+            .then(notsogreatmoods => newState.notSoGreatMoods = notsogreatmoods)
+            .then(() => API.getSpecificMood(1))
+            .then(badmoods => newState.badMoods = badmoods)
+            .then(() => this.setState(newState))
+    }
 
     render() {
 
@@ -32,6 +62,22 @@ class Home extends Component {
                             <>
                                 <TopNav />
                                 <Regulate {...props} user={this.state.user} onLogout={logout} />
+                            </>)
+                            : (<Redirect to="/login" />)
+                    }} />
+                    <Route exact path="/regulate/new" render={(props) => {
+                        return this.state.user ? (
+                            <>
+                                <TopNav />
+                                <NewRegulate {...props}
+                                    user={this.state.user}
+                                    moods={this.state.moods}
+                                    greatMoods={this.state.greatMoods}
+                                    goodMoods={this.state.goodMoods}
+                                    okayMoods={this.state.okayMoods}
+                                    notSoGreatMoods={this.state.notSoGreatMoods}
+                                    badMoods={this.state.badMoods}
+                                    onLogout={logout} />
                             </>)
                             : (<Redirect to="/login" />)
                     }} />

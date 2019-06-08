@@ -14,7 +14,7 @@ import { Stats } from 'fs';
 
 
 let topNavStyles = {
-    backgroundColor: '#1E2833',
+    backgroundColor: '#2A404A',
 };
 
 

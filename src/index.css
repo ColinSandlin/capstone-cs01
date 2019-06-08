@@ -1,3 +1,13 @@
+* {
+  font-family: 'Montserrat';
+}
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+
 body > #root {
   height: 100vh;
 }
@@ -34,14 +44,39 @@ body > #root {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* justify-content: center;
+  align-items: center; */
 }
+
+.colin-button {
+  background-color: #2A404A;
+  color: white;
+  border-radius: 25px;
+  padding: 15px 60px;
+  margin: auto;
+  border: none;
+  margin-top: 50px;
+}
+
+.colin-heading {
+  margin-top: 10vh;
+  text-align: center;
+}
+
 /* .dropdown-toggle,
 .dropdown-menu {
   width: 100%;
 } */
 
-.dropdown-container {
-
+.colin-input {
+  width: 50vw;
+  padding: 17px;
+  background-color: transparent;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 3px;
+  border-style:solid;
+  border: 1px solid #4F6D74
 }
 
 
@@ -71,7 +106,7 @@ body > #root {
   
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: #CCE4DE;
+    background: #BADED2;
   }
   
   /* Color/shape of burger icon bars on hover*/
@@ -139,3 +174,4 @@ body > #root {
 a {
     color: white;
 }
+

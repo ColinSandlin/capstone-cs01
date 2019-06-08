@@ -13,30 +13,43 @@ import NewRegulate from '../regulate/NewRegulate'
 import { getUserFromLocalStorage, logout, getUser } from '../login/LoginHandler'
 import API from "../db/API"
 
+
 let greatArray;
+const greatOpt = [];
+const goodOpt = [];
+const okayOpt = [];
+const notSoGreatOpt = [];
+const badOpt = [];
+
+
 
 class Home extends Component {
     state = {
         user: getUserFromLocalStorage(),
-        moods: []
+        greatMoods: [],
+        goodMoods: [],
+        okayMoods: [],
+        notSoGreatMoods: [],
+        badMoods: []
     }
 
+    //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
     componentDidMount() {
         const newState = {
             user: getUserFromLocalStorage(),
-            moods: [],
             greatMoods: [],
-            goodMoods: []
+            goodMoods: [],
+            okayMoods: [],
+            notSoGreatMoods: [],
+            badMoods: [],
+            greatOpt: [],
+            goodOpt: [],
+            okayOpt: [],
+            notSoGreatOpt: [],
+            badOpt: []
         }
 
-        // API.getSpecificMood(5)
-        // .then(moods => newState.moods = moods)
-        // .then(moods => moods.filter(mood => {
-        //     return ((mood.moodCategoryId === 5))
-        // }))
-        // .then(greatMoods => newState.greatMoods = greatMoods)
-        // .then(() => this.setState(newState))
-
+        //Fetch moods from local API by specifying which category to fetch. Then, put those returned promises into new state, and finally setting the state.
         API.getSpecificMood(5)
             .then(greatmoods => newState.greatMoods = greatmoods)
             .then(() => API.getSpecificMood(4))
@@ -47,6 +60,59 @@ class Home extends Component {
             .then(notsogreatmoods => newState.notSoGreatMoods = notsogreatmoods)
             .then(() => API.getSpecificMood(1))
             .then(badmoods => newState.badMoods = badmoods)
+            .then(() => this.setState(newState))
+
+            // take state and make new options arrays for the dropdown menu.
+            .then(() => {
+                this.state.greatMoods.map(greatmood => {
+                    let newObj = {
+                        value: `${greatmood.name}--${greatmood.moodCategoryId}`,
+                        label: greatmood.name,
+                    }
+                    greatOpt.push(newObj)
+                    newState.greatOpt = greatOpt
+                })
+            })
+            .then(() => {
+                this.state.goodMoods.map(goodmood => {
+                    let newObj = {
+                        value: `${goodmood.name}--${goodmood.moodCategoryId}`,
+                        label: goodmood.name,
+                    }
+                    goodOpt.push(newObj)
+                    newState.goodOpt = goodOpt
+                })
+            })
+            .then(() => {
+                this.state.okayMoods.map(okaymood => {
+                    let newObj = {
+                        value: `${okaymood.name}--${okaymood.moodCategoryId}`,
+                        label: okaymood.name,
+                    }
+                    okayOpt.push(newObj)
+                    newState.okayOpt = okayOpt
+                })
+            })
+            .then(() => {
+                this.state.notSoGreatMoods.map(notsogreatmood => {
+                    let newObj = {
+                        value: `${notsogreatmood.name}--${notsogreatmood.moodCategoryId}`,
+                        label: notsogreatmood.name,
+                    }
+                    notSoGreatOpt.push(newObj)
+                    newState.notSoGreatOpt = notSoGreatOpt
+                })
+            })
+            .then(() => {
+                this.state.badMoods.map(badmood => {
+                    let newObj = {
+                        value: `${badmood.name}--${badmood.moodCategoryId}`,
+                        label: badmood.name,
+                    }
+                    badOpt.push(newObj)
+                    newState.badOpt = badOpt
+                })
+            })
             .then(() => this.setState(newState))
     }
 
@@ -77,7 +143,12 @@ class Home extends Component {
                                     okayMoods={this.state.okayMoods}
                                     notSoGreatMoods={this.state.notSoGreatMoods}
                                     badMoods={this.state.badMoods}
-                                    onLogout={logout} />
+                                    onLogout={logout}
+                                    greatOpt={this.state.greatOpt}
+                                    goodOpt={this.state.goodOpt}
+                                    okayOpt={this.state.okayOpt}
+                                    notSoGreatOpt={this.state.notSoGreatOpt}
+                                    badOpt={this.state.badOpt} />
                             </>)
                             : (<Redirect to="/login" />)
                     }} />

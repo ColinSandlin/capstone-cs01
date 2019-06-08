@@ -35,7 +35,7 @@ export default class Regulate extends Component {
                 <div id="regulate-logo">
                     <img src={RegulateLogo}></img>
                 </div>
-                <Button onClick={this.newRegulateEntry}>New Entry</Button>
+                <button className="colin-button" onClick={this.newRegulateEntry}>New Entry</button>
             </>
 
 

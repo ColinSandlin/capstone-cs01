@@ -30,7 +30,8 @@ class Home extends Component {
         goodMoods: [],
         okayMoods: [],
         notSoGreatMoods: [],
-        badMoods: []
+        badMoods: [],
+        moodOpts: []
     }
 
     //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
@@ -46,7 +47,8 @@ class Home extends Component {
             goodOpt: [],
             okayOpt: [],
             notSoGreatOpt: [],
-            badOpt: []
+            badOpt: [],
+            moodOpts: []
         }
 
         //Fetch moods from local API by specifying which category to fetch. Then, put those returned promises into new state, and finally setting the state.
@@ -114,6 +116,11 @@ class Home extends Component {
                 })
             })
             .then(() => this.setState(newState))
+            .then(() => {
+                let moodOpts = this.state.greatOpt.concat(this.state.goodOpt, this.state.okayOpt, this.state.notSoGreatOpt, this.state.badOpt)
+                newState.moodOpts = moodOpts
+            })
+            .then(() => this.setState(newState))
     }
 
     render() {
@@ -138,17 +145,7 @@ class Home extends Component {
                                 <NewRegulate {...props}
                                     user={this.state.user}
                                     moods={this.state.moods}
-                                    greatMoods={this.state.greatMoods}
-                                    goodMoods={this.state.goodMoods}
-                                    okayMoods={this.state.okayMoods}
-                                    notSoGreatMoods={this.state.notSoGreatMoods}
-                                    badMoods={this.state.badMoods}
-                                    onLogout={logout}
-                                    greatOpt={this.state.greatOpt}
-                                    goodOpt={this.state.goodOpt}
-                                    okayOpt={this.state.okayOpt}
-                                    notSoGreatOpt={this.state.notSoGreatOpt}
-                                    badOpt={this.state.badOpt} />
+                                    moodOpts={this.state.moodOpts} />
                             </>)
                             : (<Redirect to="/login" />)
                     }} />

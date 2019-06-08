@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { withRouter, Redirect } from 'react-router'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { IconContext } from "react-icons";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
-import { Form, Container, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import Regulatecss from "./Regulate.css"
 import Select from 'react-select';
 
-
+const options = [{ value: 'seven', label: '10' }, { value: 'seven', label: '10' }]
 export default class NewRegulate extends Component {
 
     state = {
@@ -19,8 +18,17 @@ export default class NewRegulate extends Component {
         selectedMood: "",
         description: "",
         loader: false,
-        check: false
+        check: false,
+        moodOpts: []
     }
+
+    // createMoodOpts = () => {
+    //     if (this.props.greatOpt) {
+    //         let moodOpts = this.props.greatOpt.concat(this.props.goodOpt, this.props.okayOpt, this.props.notSoGreatOpt, this.props.badOpt)
+    //         this.setState({ moodOpts: moodOpts })
+    //     }
+    // }
+
 
     getTimestamp = () => {
         const date = new Date()
@@ -48,6 +56,8 @@ export default class NewRegulate extends Component {
         return (
 
             <>
+                <Select options={this.props.moodOpts} />
+
                 <h2 className="colin-heading">How are you feeling?</h2>
                 <div className="main-container">
                     <Dropdown

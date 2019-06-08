@@ -273,22 +273,33 @@
       "id": 1,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
       "dateLogged": "9:00 am 10.12.18",
-      "moodId": 3,
+      "moodCategoryId": 3,
+      "selectedMood": "Bored",
       "description": "I am at peace because I had dinner with a friend."
     },
     {
       "id": 2,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
       "dateLogged": "10:00 am 10.12.18",
-      "moodId": 4,
+      "moodCategoryId": 4,
+      "selectedMood": "Bored",
       "description": "I am content because I have perspective"
     },
     {
       "id": 3,
       "userId": "c9fSqCVSJbZRqlB69t95xqwaLMJ3",
       "dateLogged": "11:00 am 10.12.18",
-      "moodId": 3,
+      "moodCategoryId": 3,
+      "selectedMood": "Bored",
       "description": "I am at peace because I got good test results from the Hospital"
+    },
+    {
+      "userId": "B0sOnZbKsZUIfmAZbLg7NfV5yEi2",
+      "dateLogged": "4.21.24 PM",
+      "moodCategoryId": 5,
+      "selectedMood": "Peaceful",
+      "description": "asfasfasdfasdfasdfasdf",
+      "id": 4
     }
   ]
 }

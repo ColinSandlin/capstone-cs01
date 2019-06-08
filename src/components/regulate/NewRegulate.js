@@ -6,41 +6,65 @@ import { IconContext } from "react-icons";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
 import Regulatecss from "./Regulate.css"
 import Select from 'react-select';
+import { tsImportEqualsDeclaration, thisTypeAnnotation } from "@babel/types";
 
-const options = [{ value: 'seven', label: '10' }, { value: 'seven', label: '10' }]
+import API from "../db/API"
+
+const menustyling = {
+    backgroundColor: 'red'
+}
 export default class NewRegulate extends Component {
 
     state = {
         dropdownOpen: false,
         moods: [],
         label: "I'm feeling...",
-        labelCategory: "",
         selectedMood: "",
+        selectedMoodId: "",
         description: "",
         loader: false,
         check: false,
         moodOpts: []
     }
 
-    // createMoodOpts = () => {
-    //     if (this.props.greatOpt) {
-    //         let moodOpts = this.props.greatOpt.concat(this.props.goodOpt, this.props.okayOpt, this.props.notSoGreatOpt, this.props.badOpt)
-    //         this.setState({ moodOpts: moodOpts })
-    //     }
-    // }
+    logNewEntry = () => {
+        const time = new Date()
+        const splitTime = time.toLocaleTimeString().split(":").join('.')
+
+        this.setState({ loader: true })
+
+        let newEntryObj = {
+            userId: this.props.user.id,
+            dateLogged: splitTime,
+            moodCategoryId: this.state.selectedMoodId,
+            selectedMood: this.state.selectedMood,
+            description: this.state.description
+        }
+
+        API.submitEntry(newEntryObj)
+            .then(_result => {
+                console.log(_result)
+            })
+
+        //add redirect to coping mechanisms
+        // this.props.history.push('/regulate/copingmechs')
+
+    }
 
 
     getTimestamp = () => {
         const date = new Date()
         const date2 = date.toLocaleDateString()
         const timestamp = date.toLocaleTimeString()
-        return <p>{`${date2}  at  ${timestamp}`}</p>
+        return `{date2}  at  {timestamp}`
     }
 
-    select = (event) => {
+    select = (event, value) => {
+
         this.setState({
             label: event.target.innerText,
-            selectedMood: event.target.innerText
+            selectedMood: event.target.innerText,
+            selectedMoodId: value
         })
     }
 
@@ -56,8 +80,6 @@ export default class NewRegulate extends Component {
         return (
 
             <>
-                <Select options={this.props.moodOpts} />
-
                 <h2 className="colin-heading">How are you feeling?</h2>
                 <div className="main-container">
                     <Dropdown
@@ -79,58 +101,37 @@ export default class NewRegulate extends Component {
                         <DropdownMenu
                             className="dropdown-actual"
                             right={true}
-                            // style={{ backgroundColor: '#CCE4DE', border: 'none', marginLeft: '25%', maxHeight: '100' }}
-                            onChange={(e) => this.setState({ selectedMood: e.target.value })}
                             modifiers={{
-                                setMaxHeight: {
-                                    enabled: true,
-                                    order: 890,
-                                    fn: (data) => {
-                                        return {
-                                            ...data,
-                                            styles: {
-                                                ...data.styles,
-                                                overflow: 'auto',
-                                                maxHeight: 300,
-                                                backgroundColor: '#9AC4BB',
-                                                border: 'none',
-                                                marginLeft: '23%',
-                                                borderRadius: 'none',
-                                                width: '50%',
-                                                fontFamily: 'Montserrat'
-                                            },
-                                        };
-                                    },
-                                },
+                                setMaxHeight: { enabled: true, order: 890, fn: (data) => { return { ...data, styles: { ...data.styles, overflow: 'auto', maxHeight: 300, backgroundColor: '#9AC4BB', border: 'none', marginLeft: '23%', borderRadius: 'none', width: '50%', fontFamily: 'Montserrat', marginTop: '10px', overflowX: "hidden" }, }; }, },
                             }}>
                             <DropdownItem header>Great</DropdownItem>
                             {
                                 (this.props.greatMoods) ? (this.props.greatMoods.map(mood => {
-                                    return <DropdownItem key={mood.id} onClick={this.select} style={{ fontFamily: 'Montserrat', marginTop: '7px', marginLeft: '8px' }}>{mood.name}</DropdownItem>
+                                    return <DropdownItem key={`${mood.id}--${mood.moodCategoryId}`} onClick={(e) => this.select(e, 5)} style={{ fontFamily: 'Montserrat', marginTop: '7px', marginLeft: '8px' }}>{mood.name}</DropdownItem>
                                 })) : null
                             }
-                            <DropdownItem divider />
+                            <DropdownItem divider style={{ borderColor: '#466E75' }} />
                             <DropdownItem header>Good</DropdownItem>
                             {
                                 (this.props.goodMoods) ? (this.props.goodMoods.map(mood => {
                                     return <DropdownItem key={mood.id} onClick={this.select} style={{ fontFamily: 'Montserrat', marginTop: '7px', marginLeft: '8px' }}>{mood.name}</DropdownItem>
                                 })) : null
                             }
-                            <DropdownItem divider />
+                            <DropdownItem divider style={{ borderColor: '#466E75' }} />
                             <DropdownItem header>Okay</DropdownItem>
                             {
                                 (this.props.okayMoods) ? (this.props.okayMoods.map(mood => {
                                     return <DropdownItem key={mood.id} onClick={this.select} style={{ fontFamily: 'Montserrat', marginTop: '7px', marginLeft: '8px' }}>{mood.name}</DropdownItem>
                                 })) : null
                             }
-                            <DropdownItem divider />
+                            <DropdownItem divider style={{ borderColor: '#466E75' }} />
                             <DropdownItem header>Not So Great</DropdownItem>
                             {
                                 (this.props.notSoGreatMoods) ? (this.props.notSoGreatMoods.map(mood => {
                                     return <DropdownItem key={mood.id} onClick={this.select} style={{ fontFamily: 'Montserrat', marginTop: '7px', marginLeft: '8px' }}>{mood.name}</DropdownItem>
                                 })) : null
                             }
-                            <DropdownItem divider />
+                            <DropdownItem divider style={{ borderColor: '#466E75' }} />
                             <DropdownItem header>Bad</DropdownItem>
                             {
                                 (this.props.badMoods) ? (this.props.badMoods.map(mood => {
@@ -140,15 +141,13 @@ export default class NewRegulate extends Component {
                         </DropdownMenu>
                     </Dropdown>
 
-                    <input className="colin-input" type="text" placeholder="Notes, keep it shorter than a tweet" onChange={(e) => this.setState({ description: e.target.value })}></input>
+                    <input className="colin-input" type="text" placeholder="Notes, keep it shorter than a tweet" onChange={(e) => this.setState({ description: e.target.value })} style={{ fontFamily: 'Montserrat' }}></input>
                     <div className="main">
                         <button
                             style={{ outline: 0 }}
                             className="button"
-                            onClick={() => this.setState({ loader: true })}
+                            onClick={this.logNewEntry}
                         >Submit</button>
-
-
                         <div
                             className={["loader", (this.state.loader ? "active" : '')].join(' ')}
                             onAnimationEnd={() => this.setState({ check: true })}
@@ -160,7 +159,6 @@ export default class NewRegulate extends Component {
                                 <FiCheck className="check-one" />
                             </div>
                         </div>
-
                     </div>
                 </div>
             </>

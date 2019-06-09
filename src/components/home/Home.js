@@ -10,6 +10,7 @@ import Stats from '../stats/Stats'
 import FindHelp from '../findhelp/FindHelp'
 import Profile from '../profile/Profile'
 import NewRegulate from '../regulate/NewRegulate'
+import Entries from '../entries/Entries'
 import { getUserFromLocalStorage, logout, getUser } from '../login/LoginHandler'
 import API from "../db/API"
 
@@ -93,6 +94,14 @@ class Home extends Component {
                                     user={this.state.user}
                                     moods={this.state.moods}
                                     moodOpts={this.state.moodOpts} />
+                            </>)
+                            : (<Redirect to="/login" />)
+                    }} />
+                    <Route exact path="/entries" render={(props) => {
+                        return this.state.user ? (
+                            <>
+                                <TopNav />
+                                <Entries {...props} user={this.state.user} onLogout={logout} />
                             </>)
                             : (<Redirect to="/login" />)
                     }} />

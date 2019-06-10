@@ -13,8 +13,6 @@ import RegulateLogo from "../../Regulate.svg"
 
 export default class Regulate extends Component {
 
-
-
     getTimestamp = () => {
         const date = new Date()
         const date2 = date.toLocaleDateString()
@@ -40,8 +38,6 @@ export default class Regulate extends Component {
                     <button className="colin-button" onClick={this.newRegulateEntry}>New Entry</button>
                 </div>
             </>
-
-
         )
     }
 }

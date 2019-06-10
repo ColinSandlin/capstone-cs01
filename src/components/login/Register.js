@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button, Container, Grid, Message, Segment, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { loginHandler } from '../login/LoginHandler';
 import { register } from './LoginHandler'
 
 export default class Register extends Component {

@@ -1,5 +1,11 @@
+import { getUserFromLocalStorage } from '../login/LoginHandler'
+
 import APIkey from "./hiddenKey"
 const db = "http://localhost:8088"
+
+let thisUser = getUserFromLocalStorage()
+let currentUser = thisUser.id
+
 
 const API = {
     googleMaps: () => {
@@ -24,6 +30,10 @@ const API = {
             body: JSON.stringify(obj)
         })
             .then(e => e.json())
+    },
+    getSpecificCopingMech: (id) => {
+        return fetch(`${db}/copingMechanisms?moodCategoryId=${id}&userId=${currentUser}`)
+            .then(results => results.json())
     }
 }
 

@@ -91,3 +91,21 @@
     outline-style: none;
   }
   input, textarea, select, a { outline: none; }  
+
+  ::-webkit-input-placeholder {
+    color: #4F6D74;
+}
+
+.main-regulate-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-regulate-container > * {
+  margin-top: 60px;
+}

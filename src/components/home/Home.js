@@ -10,6 +10,7 @@ import Stats from '../stats/Stats'
 import FindHelp from '../findhelp/FindHelp'
 import Profile from '../profile/Profile'
 import NewRegulate from '../regulate/NewRegulate'
+import Entries from '../entries/Entries'
 import { getUserFromLocalStorage, logout, getUser } from '../login/LoginHandler'
 import API from "../db/API"
 
@@ -43,12 +44,19 @@ class Home extends Component {
             okayMoods: [],
             notSoGreatMoods: [],
             badMoods: [],
-            greatOpt: [],
-            goodOpt: [],
-            okayOpt: [],
-            notSoGreatOpt: [],
-            badOpt: [],
-            moodOpts: []
+            moodOpts: [],
+            moodCategoryId: "",
+            selectedMood: "",
+            description: "",
+            label: "I'm feeling...",
+            dropdownOpen: false,
+            loader: false,
+            check: false,
+            greatCopingMechs: [],
+            goodCopingMechs: [],
+            okayCopingMechs: [],
+            notSoGreatCopingMechs: [],
+            badCopingMechs: []
         }
 
         //Fetch moods from local API by specifying which category to fetch. Then, put those returned promises into new state, and finally setting the state.
@@ -63,74 +71,154 @@ class Home extends Component {
             .then(() => API.getSpecificMood(1))
             .then(badmoods => newState.badMoods = badmoods)
             .then(() => this.setState(newState))
+
+        //Fetch coping mechs from local API. Put those returned promises into new state and set the state.
+        API.getSpecificCopingMech(5)
+            .then(greatCopingMechs => newState.greatCopingMechs = greatCopingMechs)
+            .then(() => API.getSpecificCopingMech(4))
+            .then(goodCopingMechs => newState.goodCopingMechs = goodCopingMechs)
+            .then(() => API.getSpecificCopingMech(3))
+            .then(okayCopingMechs => newState.okayCopingMechs = okayCopingMechs)
+            .then(() => API.getSpecificCopingMech(2))
+            .then(notSoGreatCopingMechs => newState.notSoGreatCopingMechs = notSoGreatCopingMechs)
+            .then(() => API.getSpecificCopingMech(1))
+            .then(badCopingMechs => newState.badCopingMechs = badCopingMechs)
+            .then(() => this.setState(newState))
+    }
+
+    changeDesc = (e) => {
+        this.setState({ description: e.target.value })
+    }
+
+    logNewEntry = () => {
+        const time = new Date()
+        const splitTime = time.toLocaleTimeString().split(":").join('.')
+
+        this.setState({ loader: true })
+
+        let newEntryObj = {
+            userId: this.state.user.id,
+            dateLogged: splitTime,
+            moodCategoryId: this.state.moodCategoryId,
+            selectedMood: this.state.selectedMood,
+            description: this.props.description
+        }
+
+        API.submitEntry(newEntryObj)
+            .then(_result => {
+                console.log(_result)
+            })
+
+        setTimeout(() => {
+            this.props.history.push('/coping')
+        }, 3200);
+    }
+
+    select = (event, value) => {
+        this.setState({
+            label: event.target.innerText,
+            selectedMood: event.target.innerText,
+            moodCategoryId: value
+        })
+    }
+
+    toggle = () => {
+        this.setState({ dropdownOpen: !this.state.dropdownOpen });
     }
 
     render() {
-
         return (
             <>
-                <Router>
-                    <Route path="/login" render={(props) => <Login {...props} onLogin={(user) => this.setState({ user: user })} />} />
-                    <Route path="/register" render={(props) => <Register {...props} onRegister={(user) => this.setState({ user: user })} />} />
-                    <Route exact path="/regulate" render={(props) => {
-                        return this.state.user ? (
-                            <>
-                                <TopNav />
-                                <Regulate {...props} user={this.state.user} onLogout={logout} />
-                            </>)
-                            : (<Redirect to="/login" />)
-                    }} />
-                    <Route exact path="/regulate/new" render={(props) => {
-                        return this.state.user ? (
-                            <>
-                                <TopNav />
-                                <NewRegulate {...props}
-                                    greatMoods={this.state.greatMoods}
-                                    goodMoods={this.state.goodMoods}
-                                    okayMoods={this.state.okayMoods}
-                                    notSoGreatMoods={this.state.notSoGreatMoods}
-                                    badMoods={this.state.badMoods}
-                                    user={this.state.user}
-                                    moods={this.state.moods}
-                                    moodOpts={this.state.moodOpts} />
-                            </>)
-                            : (<Redirect to="/login" />)
-                    }} />
-                    <Route exact path="/coping" render={(props) => {
-                        return this.state.user ? (
-                            <>
-                                <TopNav />
-                                <Coping {...props} user={this.state.user} onLogout={logout} />
-                            </>)
-                            : (<Redirect to="/login" />)
-                    }} />
-                    <Route exact path="/stats" render={(props) => {
-                        return this.state.user ? (
-                            <>
-                                <TopNav />
-                                <Stats {...props} user={this.state.user} onLogout={logout} />
-                            </>)
-                            : (<Redirect to="/login" />)
-                    }} />
-                    <Route exact path="/findhelp" render={(props) => {
-                        return this.state.user ? (
-                            <>
-                                <TopNav />
-                                <FindHelp {...props} user={this.state.user} onLogout={logout} />
-                            </>)
-                            : (<Redirect to="/login" />)
-                    }} />
-                    <Route exact path="/profile" render={(props) => {
-                        return this.state.user ? (
-                            <>
-                                <TopNav />
-                                <Profile {...props} user={this.state.user} onLogout={logout} />
-                            </>)
-                            : (<Redirect to="/login" />)
-                    }} />
-                </Router>
+                <Route path="/login" render={(props) => <Login {...props} onLogin={(user) => this.setState({ user: user })} />} />
+                <Route path="/register" render={(props) => <Register {...props} onRegister={(user) => this.setState({ user: user })} />} />
+                <Route exact path="/regulate" render={(props) => {
+                    return this.state.user ? (
+                        <>
+                            <TopNav />
+                            <Regulate {...props} {...this.props} user={this.state.user} onLogout={logout} />
+                        </>)
+                        : (<Redirect to="/login" />)
+                }} />
+                <Route exact path="/regulate/new" render={(props) => {
+                    return this.state.user ? (
+                        <>
+                            <TopNav />
+                            <NewRegulate
+                                {...props}
+                                {...this.props}
+                                greatMoods={this.state.greatMoods}
+                                goodMoods={this.state.goodMoods}
+                                okayMoods={this.state.okayMoods}
+                                notSoGreatMoods={this.state.notSoGreatMoods}
+                                badMoods={this.state.badMoods}
+                                user={this.state.user}
+                                logNewEntry={this.logNewEntry}
+                                select={this.select}
+                                toggle={this.toggle}
+                                dropdownOpen={this.state.dropdownOpen}
+                                label={this.state.label}
+                                description={this.state.description}
+                                selectedMood={this.state.selectedMood}
+                                moodCategoryId={this.state.moodCategoryId}
+                                changeDesc={this.changeDesc}
+                                loader={this.state.loader}
+                                check={this.state.check}
+                            />
+                        </>)
+                        : (<Redirect to="/login" />)
+                }} />
+                <Route exact path="/entries" render={(props) => {
+                    return this.state.user ? (
+                        <>
+                            <TopNav />
+                            <Entries {...props} user={this.state.user} onLogout={logout} />
+                        </>)
+                        : (<Redirect to="/login" />)
+                }} />
+                <Route exact path="/coping" render={(props) => {
+                    return this.state.user ? (
+                        <>
+                            <TopNav />
+                            <Coping
+                                {...props}
+                                {...this.props}
+                                moodCategoryId={this.state.moodCategoryId}
+                                user={this.state.user}
+                                onLogout={logout}
+                                greatCopingMechs={this.state.greatCopingMechs}
+                                goodCopingMechs={this.state.goodCopingMechs}
+                                okayCopingMechs={this.state.okayCopingMechs}
+                                notSoGreatCopingMechs={this.state.notSoGreatCopingMechs}
+                                badCopingMechs={this.state.badCopingMechs} />
+                        </>)
+                        : (<Redirect to="/login" />)
+                }} />
+                <Route exact path="/stats" render={(props) => {
+                    return this.state.user ? (
+                        <>
+                            <TopNav />
+                            <Stats {...props} user={this.state.user} onLogout={logout} />
+                        </>)
+                        : (<Redirect to="/login" />)
+                }} />
+                <Route exact path="/findhelp" render={(props) => {
+                    return this.state.user ? (
+                        <>
+                            <TopNav />
+                            <FindHelp {...props} user={this.state.user} onLogout={logout} />
+                        </>)
+                        : (<Redirect to="/login" />)
+                }} />
+                <Route exact path="/profile" render={(props) => {
+                    return this.state.user ? (
+                        <>
+                            <TopNav />
+                            <Profile {...props} user={this.state.user} onLogout={logout} />
+                        </>)
+                        : (<Redirect to="/login" />)
+                }} />
             </>
         );
     }
 }
-export default Home;
+export default withRouter(Home);

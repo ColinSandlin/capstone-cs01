@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { withRouter, Redirect } from 'react-router'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { IconContext } from "react-icons";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
 import Regulatecss from "./Regulate.css"
-import API from "../db/API"
 
 
 

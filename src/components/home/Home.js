@@ -11,7 +11,7 @@ import FindHelp from '../findhelp/FindHelp'
 import Profile from '../profile/Profile'
 import NewRegulate from '../regulate/NewRegulate'
 import Entries from '../entries/Entries'
-import { getUserFromLocalStorage, logout, getUser } from '../login/LoginHandler'
+import { getUserFromLocalStorage, logout } from '../login/LoginHandler'
 import API from "../db/API"
 
 
@@ -189,7 +189,8 @@ class Home extends Component {
                                 goodCopingMechs={this.state.goodCopingMechs}
                                 okayCopingMechs={this.state.okayCopingMechs}
                                 notSoGreatCopingMechs={this.state.notSoGreatCopingMechs}
-                                badCopingMechs={this.state.badCopingMechs} />
+                                badCopingMechs={this.state.badCopingMechs}
+                                selectedMood={this.state.selectedMood} />
                         </>)
                         : (<Redirect to="/login" />)
                 }} />

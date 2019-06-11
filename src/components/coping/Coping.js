@@ -43,7 +43,7 @@ export default class Coping extends Component {
                                         })
                                     ) : (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (
                                         this.props.allCopingMechs.map(copingMech => {
-                                            return <AllCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} />
+                                            return <AllCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} moodCategoryId={this.props.moodCategoryId} />
                                         })
                                     ) : null
                 }

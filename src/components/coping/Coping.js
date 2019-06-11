@@ -6,6 +6,7 @@ import GoodCmCard from './GoodCmCard'
 import OkayCmCard from './OkayCmCard'
 import NotSoGreatCmCard from './NotSoGreatCmCard'
 import BadCmCard from './BadCmCard'
+import AllCmCard from './AllCmCard'
 
 import cardCss from './cardCss.css'
 
@@ -14,7 +15,7 @@ import cardCss from './cardCss.css'
 export default class Coping extends Component {
     render() {
         return (
-            <Carousel widgets={[IndicatorDots]} >
+            <Carousel widgets={[IndicatorDots]} showArrows={true}>
                 {
                     (this.props.moodCategoryId === 5) ? (
                         this.props.greatCopingMechs.map(copingMech => {
@@ -39,6 +40,10 @@ export default class Coping extends Component {
                                     (this.props.moodCategoryId === 1) ? (
                                         this.props.badCopingMechs.map(copingMech => {
                                             return <BadCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} />
+                                        })
+                                    ) : (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (
+                                        this.props.allCopingMechs.map(copingMech => {
+                                            return <AllCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} />
                                         })
                                     ) : null
                 }

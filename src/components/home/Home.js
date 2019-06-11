@@ -32,7 +32,13 @@ class Home extends Component {
         okayMoods: [],
         notSoGreatMoods: [],
         badMoods: [],
-        moodOpts: []
+        moodOpts: [],
+        allCopingMechs: [],
+        greatCopingMechs: [],
+        goodCopingMechs: [],
+        okayCopingMechs: [],
+        notSoGreatCopingMechs: [],
+        badCopingMechs: []
     }
 
     //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
@@ -52,12 +58,14 @@ class Home extends Component {
             dropdownOpen: false,
             loader: false,
             check: false,
+            allCopingMechs: [],
             greatCopingMechs: [],
             goodCopingMechs: [],
             okayCopingMechs: [],
             notSoGreatCopingMechs: [],
             badCopingMechs: []
         }
+
 
         //Fetch moods from local API by specifying which category to fetch. Then, put those returned promises into new state, and finally setting the state.
         API.getSpecificMood(5)
@@ -70,10 +78,9 @@ class Home extends Component {
             .then(notsogreatmoods => newState.notSoGreatMoods = notsogreatmoods)
             .then(() => API.getSpecificMood(1))
             .then(badmoods => newState.badMoods = badmoods)
-            .then(() => this.setState(newState))
 
-        //Fetch coping mechs from local API. Put those returned promises into new state and set the state.
-        API.getSpecificCopingMech(5)
+            //Fetch coping mechs from local API. Put those returned promises into new state and set the state.
+            .then(() => API.getSpecificCopingMech(5))
             .then(greatCopingMechs => newState.greatCopingMechs = greatCopingMechs)
             .then(() => API.getSpecificCopingMech(4))
             .then(goodCopingMechs => newState.goodCopingMechs = goodCopingMechs)
@@ -83,6 +90,9 @@ class Home extends Component {
             .then(notSoGreatCopingMechs => newState.notSoGreatCopingMechs = notSoGreatCopingMechs)
             .then(() => API.getSpecificCopingMech(1))
             .then(badCopingMechs => newState.badCopingMechs = badCopingMechs)
+
+            .then(() => API.getAllCopingMechs())
+            .then(results => newState.allCopingMechs = results)
             .then(() => this.setState(newState))
     }
 
@@ -190,7 +200,8 @@ class Home extends Component {
                                 okayCopingMechs={this.state.okayCopingMechs}
                                 notSoGreatCopingMechs={this.state.notSoGreatCopingMechs}
                                 badCopingMechs={this.state.badCopingMechs}
-                                selectedMood={this.state.selectedMood} />
+                                selectedMood={this.state.selectedMood}
+                                allCopingMechs={this.state.allCopingMechs} />
                         </>)
                         : (<Redirect to="/login" />)
                 }} />

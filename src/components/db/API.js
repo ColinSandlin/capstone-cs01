@@ -34,6 +34,10 @@ const API = {
     getSpecificCopingMech: (id) => {
         return fetch(`${db}/copingMechanisms?moodCategoryId=${id}&userId=${currentUser}`)
             .then(results => results.json())
+    },
+    getAllCopingMechs: () => {
+        return fetch(`${db}/copingMechanisms?userId=${currentUser}`)
+            .then(results => results.json())
     }
 }
 

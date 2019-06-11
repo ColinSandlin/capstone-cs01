@@ -136,6 +136,9 @@ class Home extends Component {
 
 
     submitNewCmEntry = () => {
+        const newState = {
+            allCopingMechs: []
+        }
         const newObj = {
             userId: this.state.user.id,
             title: this.state.title,
@@ -146,8 +149,10 @@ class Home extends Component {
         }
         console.log("new entry", newObj)
         API.submitMech(newObj)
-        this.toggleModal()
-        this.setState()
+            .then(() => API.getAllCopingMechs())
+            .then(copingMechs => newState.allCopingMechs = copingMechs)
+            .then(() => this.setState(newState))
+            .then(() => this.toggleModal())
     }
 
     changeDesc = (e) => {

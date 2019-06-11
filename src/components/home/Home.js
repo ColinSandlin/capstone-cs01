@@ -38,7 +38,14 @@ class Home extends Component {
         goodCopingMechs: [],
         okayCopingMechs: [],
         notSoGreatCopingMechs: [],
-        badCopingMechs: []
+        badCopingMechs: [],
+        modal: false,
+        copingLabel: "Select a mood category for this coping mechanism",
+        title: "",
+        url: "",
+        info: "",
+        info2: "",
+        copingMoodCategoryId: ""
     }
 
     //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
@@ -63,7 +70,14 @@ class Home extends Component {
             goodCopingMechs: [],
             okayCopingMechs: [],
             notSoGreatCopingMechs: [],
-            badCopingMechs: []
+            badCopingMechs: [],
+            modal: false,
+            copingLabel: "Select a mood category for this coping mechanism",
+            title: "",
+            url: "",
+            info: "",
+            info2: "",
+            copingMoodCategoryId: ""
         }
 
 
@@ -94,6 +108,46 @@ class Home extends Component {
             .then(() => API.getAllCopingMechs())
             .then(results => newState.allCopingMechs = results)
             .then(() => this.setState(newState))
+    }
+
+    // All other functions to be passed down
+    handleFieldChange = evt => {
+        const stateToChange = {};
+        stateToChange[evt.target.id] = evt.target.value;
+        this.setState(stateToChange);
+    };
+
+    toggleModal = () => {
+        this.setState(prevState => ({
+            modal: !prevState.modal
+        }));
+    }
+
+    toggleExpansion = () => {
+        this.setState({ showinfo: !this.state.showinfo })
+    }
+
+    selectMoodCat = (event, value) => {
+        this.setState({
+            copingLabel: event.target.innerText,
+            copingMoodCategoryId: value
+        })
+    }
+
+
+    submitNewCmEntry = () => {
+        const newObj = {
+            userId: this.state.user.id,
+            title: this.state.title,
+            url: this.state.url,
+            info: this.state.info,
+            info2: this.state.info2,
+            moodCategoryId: this.state.copingMoodCategoryId
+        }
+        console.log("new entry", newObj)
+        API.submitMech(newObj)
+        this.toggleModal()
+        this.setState()
     }
 
     changeDesc = (e) => {
@@ -132,7 +186,7 @@ class Home extends Component {
         })
     }
 
-    toggle = () => {
+    toggleDropdown = () => {
         this.setState({ dropdownOpen: !this.state.dropdownOpen });
     }
 
@@ -164,7 +218,7 @@ class Home extends Component {
                                 user={this.state.user}
                                 logNewEntry={this.logNewEntry}
                                 select={this.select}
-                                toggle={this.toggle}
+                                toggleDropdown={this.toggleDropdown}
                                 dropdownOpen={this.state.dropdownOpen}
                                 label={this.state.label}
                                 description={this.state.description}
@@ -201,7 +255,17 @@ class Home extends Component {
                                 notSoGreatCopingMechs={this.state.notSoGreatCopingMechs}
                                 badCopingMechs={this.state.badCopingMechs}
                                 selectedMood={this.state.selectedMood}
-                                allCopingMechs={this.state.allCopingMechs} />
+                                allCopingMechs={this.state.allCopingMechs}
+                                toggleDropdown={this.toggleDropdown}
+                                dropdownOpen={this.state.dropdownOpen}
+                                handleFieldChange={this.handleFieldChange}
+                                toggleModal={this.toggleModal}
+                                toggleExpansion={this.toggleExpansion}
+                                selectMoodCat={this.selectMoodCat}
+                                submitNewCmEntry={this.submitNewCmEntry}
+                                copingLabel={this.state.copingLabel}
+                                modal={this.state.modal}
+                            />
                         </>)
                         : (<Redirect to="/login" />)
                 }} />

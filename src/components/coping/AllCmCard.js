@@ -13,7 +13,6 @@ export default class AllCmCard extends Component {
 
     state = {
         showinfo: false,
-        modal: false,
         userId: theUserIdIs.id,
         title: this.props.copingMechTitle,
         url: this.props.copingMechUrl,
@@ -28,35 +27,15 @@ export default class AllCmCard extends Component {
         this.setState(stateToChange);
     };
 
-    toggleModal = () => {
-        this.setState(prevState => ({
-            modal: !prevState.modal
-        }));
-    }
 
     toggleExpansion = () => {
         this.setState({ showinfo: !this.state.showinfo })
     }
 
 
-    updateForm = () => {
-        const newObj = {
-            id: this.props.copingMechId,
-            userId: this.state.userId,
-            title: this.state.title,
-            url: this.state.url,
-            info: this.state.info,
-            info2: this.state.info2
-        }
-        console.log("update", newObj)
-        API.editCopingMech(this.props.copingMechId, newObj)
-        this.setState()
-    }
-
-
     render() {
         return (
-            <article key={this.props.copingMechId} className="card" onDoubleClick={this.toggleModal}>
+            <article key={this.props.copingMechId} className="card" onDoubleClick={this.props.toggleEditModal}>
                 <div className="thumb" style={{ backgroundImage: `url(${this.props.copingMechUrl})` }}></div>
                 <div className="infos">
                     <h2 className="title">{this.props.copingMechTitle}</h2><h4 className="flag">{this.props.moodCategoryId}</h4>
@@ -69,8 +48,8 @@ export default class AllCmCard extends Component {
                     <br></br>
                     <br></br>
                     <br></br>
-                    <Modal size="lg" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} centered={true}>
-                        <ModalHeader toggle={this.toggle} charCode="Y">
+                    <Modal size="lg" isOpen={this.props.editModal} className={this.props.className} centered={true}>
+                        <ModalHeader charCode="Y">
                             Edit Coping Mechanism
                         </ModalHeader>
                         <ModalBody>
@@ -87,7 +66,6 @@ export default class AllCmCard extends Component {
                                     <Label for="additionalInfo">Additional Information</Label>
                                     <Input type="text" name="additionalInfo" id="info2" placeholder="Additional Information" defaultValue={this.props.copingMechInfo2} onChange={this.handleFieldChange} />
                                 </FormGroup>
-                                {/* Replace below with a firebase upload button */}
                                 <FormGroup>
                                     <Label for="url">Image Url</Label>
                                     <Input type="text" name="url" id="url" placeholder="www.website.com" defaultValue={this.props.copingMechUrl} onChange={this.handleFieldChange} />
@@ -95,7 +73,7 @@ export default class AllCmCard extends Component {
                             </Form >
                         </ModalBody>
                         <ModalFooter>
-                            <button className="colin-button" onClick={this.updateForm}>Submit Edited Coping Mechanism</button>
+                            <button className="colin-button" onClick={this.props.updateCmForm}>Submit Edited Coping Mechanism</button>
                         </ModalFooter>
                     </Modal>
                 </div>

@@ -21,7 +21,7 @@ export default function IndicatorDots(props) {
     position: 'relative',
     width: '100%',
     zIndex: '100',
-    // bottom: '100px',
+    bottom: '200px',
     textAlign: 'center'
   }
 

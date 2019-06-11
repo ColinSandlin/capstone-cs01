@@ -39,7 +39,8 @@ class Home extends Component {
         okayCopingMechs: [],
         notSoGreatCopingMechs: [],
         badCopingMechs: [],
-        modal: false,
+        addModal: false,
+        editModal: false,
         copingLabel: "Select a mood category for this coping mechanism",
         title: "",
         url: "",
@@ -71,13 +72,14 @@ class Home extends Component {
             okayCopingMechs: [],
             notSoGreatCopingMechs: [],
             badCopingMechs: [],
-            modal: false,
+            addModal: false,
+            editModal: false,
             copingLabel: "Select a mood category for this coping mechanism",
-            title: "",
-            url: "",
-            info: "",
-            info2: "",
-            copingMoodCategoryId: ""
+            AddTitle: "",
+            AddUrl: "",
+            AddInfo: "",
+            AddInfo2: "",
+            AddCopingMoodCategoryId: "",
         }
 
 
@@ -111,15 +113,14 @@ class Home extends Component {
     }
 
     // All other functions to be passed down
-    handleFieldChange = evt => {
-        const stateToChange = {};
-        stateToChange[evt.target.id] = evt.target.value;
-        this.setState(stateToChange);
-    };
-
-    toggleModal = () => {
+    toggleAddModal = () => {
         this.setState(prevState => ({
-            modal: !prevState.modal
+            addModal: !prevState.modal
+        }));
+    }
+    toggleEditModal = () => {
+        this.setState(prevState => ({
+            editModal: !prevState.modal
         }));
     }
 
@@ -127,32 +128,17 @@ class Home extends Component {
         this.setState({ showinfo: !this.state.showinfo })
     }
 
+    handleFieldChange = evt => {
+        const stateToChange = {};
+        stateToChange[evt.target.id] = evt.target.value;
+        this.setState(stateToChange);
+    };
+
     selectMoodCat = (event, value) => {
         this.setState({
             copingLabel: event.target.innerText,
-            copingMoodCategoryId: value
+            addCopingMoodCategoryId: value
         })
-    }
-
-
-    submitNewCmEntry = () => {
-        const newState = {
-            allCopingMechs: []
-        }
-        const newObj = {
-            userId: this.state.user.id,
-            title: this.state.title,
-            url: this.state.url,
-            info: this.state.info,
-            info2: this.state.info2,
-            moodCategoryId: this.state.copingMoodCategoryId
-        }
-        console.log("new entry", newObj)
-        API.submitMech(newObj)
-            .then(() => API.getAllCopingMechs())
-            .then(copingMechs => newState.allCopingMechs = copingMechs)
-            .then(() => this.setState(newState))
-            .then(() => this.toggleModal())
     }
 
     changeDesc = (e) => {
@@ -194,6 +180,48 @@ class Home extends Component {
     toggleDropdown = () => {
         this.setState({ dropdownOpen: !this.state.dropdownOpen });
     }
+
+    submitNewCmEntry = () => {
+        const newState = {
+            allCopingMechs: [],
+            addModal: false
+        }
+        const newObj = {
+            userId: this.state.user.id,
+            title: this.state.addTitle,
+            url: this.state.addUrl,
+            info: this.state.addInfo,
+            info2: this.state.addInfo2,
+            moodCategoryId: this.state.addCopingMoodCategoryId
+        }
+        console.log("new entry", newObj)
+        API.submitMech(newObj)
+            .then(() => API.getAllCopingMechs())
+            .then(copingMechs => newState.allCopingMechs = copingMechs)
+            .then(() => this.setState(newState))
+
+    }
+
+    updateCmForm = () => {
+        const newObj = {
+            id: this.props.copingMechId,
+            userId: this.state.userId,
+            title: this.state.title,
+            url: this.state.url,
+            info: this.state.info,
+            info2: this.state.info2
+        }
+        console.log("update", newObj)
+        let newState = {
+            specificCopingMech: [],
+            editModal: false
+        }
+        API.editCopingMech(this.props.copingMechId, newObj)
+            .then(() => API.getSpecificCopingMech(this.props.moodCategoryId))
+            .then(copingMechs => newState.specificCopingMech = copingMechs)
+            .then(() => this.setState(newState))
+    }
+
 
     render() {
         return (
@@ -264,12 +292,15 @@ class Home extends Component {
                                 toggleDropdown={this.toggleDropdown}
                                 dropdownOpen={this.state.dropdownOpen}
                                 handleFieldChange={this.handleFieldChange}
-                                toggleModal={this.toggleModal}
+                                toggleAddModal={this.toggleAddModal}
+                                toggleEditModal={this.toggleEditModal}
                                 toggleExpansion={this.toggleExpansion}
                                 selectMoodCat={this.selectMoodCat}
                                 submitNewCmEntry={this.submitNewCmEntry}
                                 copingLabel={this.state.copingLabel}
-                                modal={this.state.modal}
+                                addModal={this.state.addModal}
+                                editModal={this.state.editModal}
+                                updateCmForm={this.updateCmForm}
                             />
                         </>)
                         : (<Redirect to="/login" />)

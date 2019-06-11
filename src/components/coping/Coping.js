@@ -26,11 +26,12 @@ export default class Coping extends Component {
 
 
 
+
     render() {
         return (
             <>
                 {
-                    (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (<p onClick={this.props.toggleModal}><FiPlus />Add</p>) : null
+                    (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (<p onClick={this.props.toggleAddModal}><FiPlus />Add</p>) : null
                 }
                 <Carousel widgets={[IndicatorDots]} showArrows={true} >
 
@@ -61,12 +62,12 @@ export default class Coping extends Component {
                                             })
                                         ) : (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (
                                             this.props.allCopingMechs.map(copingMech => {
-                                                return <AllCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} moodCategoryId={this.props.moodCategoryId} />
+                                                return <AllCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} moodCategoryId={this.props.moodCategoryId} updateCmForm={this.props.updateCmForm} editModal={this.props.editModal} toggleEditModal={this.props.toggleEditModal} />
                                             })
                                         ) : null
                     }
                 </Carousel>
-                <Modal size="lg" isOpen={this.props.modal} className={this.props.className} centered={true}>
+                <Modal size="lg" isOpen={this.props.addModal} className={this.props.className} centered={true}>
                     <ModalHeader charCode="Y">
                         Add New Coping Mechanism
                         </ModalHeader>
@@ -74,22 +75,22 @@ export default class Coping extends Component {
                         < Form >
                             <FormGroup>
                                 <Label for="title">Title</Label>
-                                <Input type="text" name="title" id="title" placeholder="Add a title" onChange={this.props.handleFieldChange} />
+                                <Input type="text" name="title" id="addTitle" placeholder="Add a title" onChange={this.props.handleFieldChange} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="info">Description</Label>
-                                <Input type="text" name="info" id="info" placeholder="Add a description" onChange={this.props.handleFieldChange} />
+                                <Input type="text" name="info" id="addInfo" placeholder="Add a description" onChange={this.props.handleFieldChange} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="additionalInfo">Additional Information</Label>
-                                <Input type="text" name="additionalInfo" id="info2" placeholder="Add any additional information" onChange={this.props.handleFieldChange} />
+                                <Input type="text" name="additionalInfo" id="addInfo2" placeholder="Add any additional information" onChange={this.props.handleFieldChange} />
                             </FormGroup>
                             {/* Replace below with a firebase upload button */}
                             <FormGroup>
                                 <Label for="url">Image Url</Label>
-                                <Input type="text" name="url" id="url" placeholder="Add a URL" onChange={this.props.handleFieldChange} />
+                                <Input type="text" name="url" id="addUrl" placeholder="Add a URL" onChange={this.props.handleFieldChange} />
                             </FormGroup>
-                            <Dropdown isOpen={this.props.dropdownOpen} toggle={this.props.toggleDropdown}>
+                            <Dropdown isOpen={this.props.dropdownOpen} toggle={this.props.toggleDropdown} id="addCopingMoodCategoryId">
                                 <DropdownToggle caret>
                                     {this.props.copingLabel}
                                 </DropdownToggle>

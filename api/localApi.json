@@ -258,10 +258,10 @@
     {
       "id": 3,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Bake Something Delicious",
+      "title": "Do Something Kind for a Friend!",
       "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "info": "Keeping your hands busy and having a delicious project seems to do the trick",
-      "info2": "Link to Pinterest Board",
+      "info": "Doing something for others removes the focus from your own struggles",
+      "info2": "Link to ideas",
       "moodCategoryId": 2
     },
     {
@@ -299,41 +299,6 @@
       "info": "Way to keep your mental health on track!",
       "info2": "placeholder line two",
       "moodCategoryId": 5
-    },
-    {
-      "title": "asdf",
-      "url": "asdf",
-      "info": "asdf",
-      "info2": "asdf",
-      "moodCategoryId": 5,
-      "id": 7
-    },
-    {
-      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "asf",
-      "url": "asdf",
-      "info": "asdf",
-      "info2": "asdf",
-      "moodCategoryId": 5,
-      "id": 8
-    },
-    {
-      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "go to the stoe",
-      "url": "asdf",
-      "info": "asdf",
-      "info2": "asdf",
-      "moodCategoryId": 2,
-      "id": 9
-    },
-    {
-      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "yo",
-      "url": "asdf",
-      "info": "asdf",
-      "info2": "as",
-      "moodCategoryId": 2,
-      "id": 10
     }
   ],
   "loggedEntries": [
@@ -1106,6 +1071,55 @@
       "moodCategoryId": 1,
       "selectedMood": "Disgusted",
       "id": 111
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2.00.29 PM",
+      "moodCategoryId": 1,
+      "selectedMood": "Impatient",
+      "id": 112
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2.05.55 PM",
+      "moodCategoryId": 1,
+      "selectedMood": "Disgusted",
+      "id": 113
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2.06.37 PM",
+      "moodCategoryId": 1,
+      "selectedMood": "Disgusted",
+      "id": 114
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2.07.31 PM",
+      "moodCategoryId": 1,
+      "selectedMood": "Impatient",
+      "id": 115
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2.08.54 PM",
+      "moodCategoryId": 5,
+      "selectedMood": "Thankful",
+      "id": 116
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2.10.20 PM",
+      "moodCategoryId": 5,
+      "selectedMood": "Content",
+      "id": 117
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2.16.21 PM",
+      "moodCategoryId": 1,
+      "selectedMood": "Disgusted",
+      "id": 118
     }
   ]
 }

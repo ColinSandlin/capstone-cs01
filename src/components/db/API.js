@@ -38,6 +38,15 @@ const API = {
     getAllCopingMechs: () => {
         return fetch(`${db}/copingMechanisms?userId=${currentUser}`)
             .then(results => results.json())
+    },
+    editCopingMech: (entryId, entryObj) => {
+        return fetch(`${db}/copingMechanisms/${entryId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(entryObj)
+        }).then(response => response.json())
     }
 }
 

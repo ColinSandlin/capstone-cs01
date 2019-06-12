@@ -82,8 +82,8 @@ export default class Coping extends Component {
                                         ) : null
                     }
                 </Carousel>
-                <Modal size="lg" isOpen={this.props.addModal} className={this.props.className} centered={true}>
-                    <ModalHeader charCode="Y">
+                <Modal size="lg" isOpen={this.props.addModal} toggle={this.toggleAddModal} className={this.props.className} centered={true}>
+                    <ModalHeader toggle={this.props.toggleAddModal}>
                         Add New Coping Mechanism
                         </ModalHeader>
                     <ModalBody>

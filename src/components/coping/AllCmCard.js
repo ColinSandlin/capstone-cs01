@@ -34,7 +34,7 @@ export default class AllCmCard extends Component {
 
     toggleEditModal = () => {
         this.setState(prevState => ({
-            editModal: !prevState.modal
+            editModal: !prevState.editModal
         }));
     }
 
@@ -59,7 +59,8 @@ export default class AllCmCard extends Component {
         }
 
         API.editCopingMech(newObj.id, newObj)
-            .then(results => console.log(results))
+            .then(() => this.props.loadCms())
+            .then(() => this.setState({ editModal: false }))
     }
 
 
@@ -81,8 +82,8 @@ export default class AllCmCard extends Component {
                         <br></br>
                     </div>
                 </article>
-                <Modal size="lg" isOpen={this.state.editModal} className={this.props.className} centered={true}>
-                    <ModalHeader charCode="Y">
+                <Modal size="lg" isOpen={this.state.editModal} className={this.props.className} toggle={this.toggleEditModal} centered={true}>
+                    <ModalHeader toggle={this.toggleEditModal} >
                         Edit Coping Mechanism
                     </ModalHeader>
                     <ModalBody>
@@ -103,19 +104,20 @@ export default class AllCmCard extends Component {
                                 <Label for="editUrl">Image Url</Label>
                                 <Input type="text" name="url" id="editUrl" onChange={this.handleFieldChange} defaultValue={this.props.copingMechUrl} />
                             </FormGroup>
-                            <Input type="select" id="editCopingMoodCategoryId" onChange={this.handleFieldChange} value={this.props.copingMechMoodCategory}>
-                                <option ></option>
-                                <option value={5}>Great</option>
-                                <option value={4}>Good</option>
-                                <option value={3}>Okay</option>
-                                <option value={2}>Not So Great</option>
-                                <option value={1}>Bad</option>
-                            </Input>
+                            <FormGroup>
+                                <Label for="editCopingMoodCategoryId">Mood Category</Label>
+                                <Input type="select" id="editCopingMoodCategoryId" onChange={this.handleFieldChange} value={this.props.copingMechMoodCategory}>
+                                    <option ></option>
+                                    <option value={5}>Great</option>
+                                    <option value={4}>Good</option>
+                                    <option value={3}>Okay</option>
+                                    <option value={2}>Not So Great</option>
+                                    <option value={1}>Bad</option>
+                                </Input>
+                            </FormGroup>
                         </Form >
-                    </ModalBody>
-                    <ModalFooter>
                         <button className="colin-button" onClick={() => this.updateCmForm(this.props.copingMechId)}>Submit Edit</button>
-                    </ModalFooter>
+                    </ModalBody>
                 </Modal>
             </>
         )

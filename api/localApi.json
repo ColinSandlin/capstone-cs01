@@ -240,20 +240,20 @@
     {
       "id": 1,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Call Your Mother and talk to her",
+      "title": "Call Your Mom",
       "url": "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       "info": "Hit her up and tell her you need someone to talk to",
       "info2": "(205)253-2125",
-      "moodCategoryId": 2
+      "moodCategoryId": 1
     },
     {
       "id": 2,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Go to the Gym!!",
+      "title": "Go to the Gym",
       "url": "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       "info": "Pumping some iron always helps you refocus, think, and regain energy.",
       "info2": "YMCA Green Hills",
-      "moodCategoryId": 1
+      "moodCategoryId": 4
     },
     {
       "id": 3,
@@ -317,6 +317,15 @@
       "info2": "asdf",
       "moodCategoryId": 1,
       "id": 8
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "title": "Go to the Moon, dude!",
+      "url": "https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "adsf",
+      "info2": "asds",
+      "moodCategoryId": 3,
+      "id": 10
     }
   ],
   "loggedEntries": [
@@ -397,6 +406,13 @@
       "selectedMood": "Impatient",
       "description": "asdsdfs",
       "id": 12
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "11.31.27 AM",
+      "moodCategoryId": 1,
+      "selectedMood": "Impatient",
+      "id": 13
     }
   ]
 }

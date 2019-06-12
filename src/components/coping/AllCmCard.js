@@ -59,7 +59,8 @@ export default class AllCmCard extends Component {
         }
 
         API.editCopingMech(newObj.id, newObj)
-            .then(results => console.log(results))
+            .then(() => this.props.loadCms())
+            .then(() => this.setState({ editModal: false }))
     }
 
 

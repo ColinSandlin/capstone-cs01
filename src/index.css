@@ -1,8 +1,15 @@
-* {
-  font-family: 'Montserrat';
+@font-face {
+  font-family: "Altero";
+  src: url(./components/fonts/Altero-Regular.otf) format('otf')
 }
 
-:focus {
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Altero';
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+*:focus {
   outline-color: transparent;
   outline-style: none;
 }
@@ -38,6 +45,7 @@ body > #root {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: -10px;
 }
 
 .main-container {
@@ -57,6 +65,7 @@ body > #root {
   margin: auto;
   border: none;
   margin-top: 50px;
+  font-family: 'Altero';
 }
 
 .delete-button {
@@ -68,6 +77,7 @@ body > #root {
   margin-left: 20px;
   border: 1px solid #D3524E;
   margin-top: 50px;
+  font-family: 'Altero';
 }
 
 .colin-heading {
@@ -104,6 +114,21 @@ body > #root {
   justify-content: flex-end;
 }
 
+.dropdown-actual > .dropdown-item {
+  color: #2A404A;
+  margin-left: -50px;
+}
+.dropdown-actual > .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-actual > h6 {
+  color: rgb(71, 109, 126);
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-family: 'Knockout';
+}
 
 /* hamburgermenu */
 /* Position and sizing of burger button */
@@ -173,6 +198,11 @@ body > #root {
     padding: 1em;
     color: #C7E5DE;
   }
+
+  .bm-item:hover {
+    text-decoration: none;
+    color: rgb(213, 230, 224);
+  }
   
   /* Styling of overlay */
   .bm-overlay {
@@ -183,8 +213,16 @@ body > #root {
     color: #ECAEA3;
 }
 
+
+
+
 a {
     color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ECAEA3;
 }
 
 /* additions */

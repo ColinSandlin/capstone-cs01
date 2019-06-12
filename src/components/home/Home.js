@@ -45,7 +45,8 @@ class Home extends Component {
         addUrl: "",
         addInfo: "",
         addInfo2: "",
-        addCopingMoodCategoryId: ""
+        addCopingMoodCategoryId: "",
+        allEntries: [],
     }
 
     //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
@@ -78,6 +79,7 @@ class Home extends Component {
             addInfo: "",
             addInfo2: "",
             addCopingMoodCategoryId: "",
+            allEntries: [],
         }
 
 
@@ -105,8 +107,18 @@ class Home extends Component {
             .then(() => API.getSpecificCopingMech(1))
             .then(badCopingMechs => newState.badCopingMechs = badCopingMechs)
 
+            //Fetch all coping mechs, put into state, and set state
             .then(() => API.getAllCopingMechs())
             .then(results => newState.allCopingMechs = results)
+
+            //Fetch all entries, put into state, and set state
+            .then(() => API.getAllEntries())
+            .then(results => {
+                console.log(results)
+                newState.allEntries = results
+            }
+            )
+
             .then(() => this.setState(newState))
     }
 
@@ -253,7 +265,11 @@ class Home extends Component {
                     return this.state.user ? (
                         <>
                             <TopNav />
-                            <Entries {...props} user={this.state.user} onLogout={logout} />
+                            <Entries
+                                {...props}
+                                user={this.state.user}
+                                onLogout={logout}
+                                allEntries={this.state.allEntries} />
                         </>)
                         : (<Redirect to="/login" />)
                 }} />

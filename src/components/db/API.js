@@ -66,6 +66,10 @@ const API = {
             }
         })
             .then(e => e.json())
+    },
+    getAllEntries: () => {
+        return fetch(`${db}/loggedEntries?userId=${currentUser}&_expand=moodCategory`)
+            .then(results => results.json())
     }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { IconContext } from "react-icons";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
@@ -49,7 +49,7 @@ class NewRegulate extends Component {
                             <DropdownItem header>Great</DropdownItem>
                             {
                                 (this.props.greatMoods) ? (this.props.greatMoods.map(mood => {
-                                    return <DropdownItem key={`${mood.id}--${mood.moodCategoryId}`} onClick={(e) => this.props.select(e, 5)} style={{ fontFamily: 'Montserrat', marginTop: '7px', marginLeft: '8px' }} className="dropdown-item">{mood.name} </DropdownItem>
+                                    return <DropdownItem key={`${mood.id}--${mood.moodCategoryId}`} onClick={(e) => this.props.select(e, 5)} style={{ fontFamily: 'Montserrat', marginLeft: '8px' }} className="dropdown-item">{mood.name} </DropdownItem>
                                 })) : null
                             }
                             <DropdownItem divider style={{ borderColor: '#466E75' }} />
@@ -85,7 +85,7 @@ class NewRegulate extends Component {
 
                     <input className="colin-input" type="text" placeholder="Notes - try to keep it shorter than a tweet" onChange={(e) => this.props.changeDesc(e)} style={{ fontFamily: 'Montserrat', color: "#2A404A" }}></input>
                     <div className="main">
-                        <button style={{ outline: 0 }} className="button" onClick={this.props.logNewEntry} >Submit</button>
+                        <button style={{ outline: 0 }} className="button" onClick={this.props.logNewEntry} >SUBMIT</button>
                         <div className={["loader", (this.props.loader ? "active" : '')].join(' ')} onAnimationEnd={() => this.setState({ check: true })}>
                             <div className={["check", (this.state.check ? "active" : '')].join(' ')}>
                                 <FiCheck className="check-one" />

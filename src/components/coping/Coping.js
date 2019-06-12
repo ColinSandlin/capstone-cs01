@@ -70,6 +70,7 @@ export default class Coping extends Component {
                                                     copingMechTitle={copingMech.title}
                                                     copingMechInfo={copingMech.info}
                                                     copingMechInfo2={copingMech.info2}
+                                                    copingMechMoodCategory={copingMech.moodCategoryId}
                                                     moodCategoryId={this.props.moodCategoryId}
                                                     handleFieldChange={this.props.handleFieldChange}
                                                     toggleDropdown={this.props.toggleDropdown}

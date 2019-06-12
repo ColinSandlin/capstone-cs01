@@ -22,7 +22,7 @@ export default class AllCmCard extends Component {
         editInfo: this.props.copingMechInfo,
         editInfo2: this.props.copingMechInfo2,
         editCopingLabel: "Select a mood category for this coping mechanism",
-        editCopingMoodCategoryId: this.props.MoodCategoryId
+        editCopingMoodCategoryId: this.props.copingMechMoodCategory
     }
 
     handleFieldChange = evt => {
@@ -31,12 +31,6 @@ export default class AllCmCard extends Component {
         this.setState(stateToChange);
     };
 
-    editSelectMoodCat = (event, value) => {
-        this.setState({
-            editCopingLabel: event.target.innerText,
-            editCopingMoodCategoryId: value
-        })
-    }
 
     toggleEditModal = () => {
         this.setState(prevState => ({
@@ -56,7 +50,7 @@ export default class AllCmCard extends Component {
             url: this.state.editUrl,
             info: this.state.editInfo,
             info2: this.state.editInfo2,
-            moodCategoryId: this.props.editCopingMoodCategoryId
+            moodCategoryId: parseInt(this.state.editCopingMoodCategoryId)
         }
         console.log("update", newObj)
         let newState = {
@@ -109,18 +103,14 @@ export default class AllCmCard extends Component {
                                 <Label for="editUrl">Image Url</Label>
                                 <Input type="text" name="url" id="editUrl" onChange={this.handleFieldChange} defaultValue={this.props.copingMechUrl} />
                             </FormGroup>
-                            <Dropdown isOpen={this.props.dropdownOpen} toggle={this.props.toggleDropdown} id="editMoodCategoryId" onChange={this.handleFieldChange} >
-                                <DropdownToggle caret >
-                                    {this.state.editCopingLabel}
-                                </DropdownToggle>
-                                <DropdownMenu >
-                                    <DropdownItem onClick={(e) => this.editSelectMoodCat(e, 5)} > Great</DropdownItem>
-                                    <DropdownItem onClick={(e) => this.editSelectMoodCat(e, 4)} > Good</DropdownItem>
-                                    <DropdownItem onClick={(e) => this.editSelectMoodCat(e, 3)} > Okay</DropdownItem>
-                                    <DropdownItem onClick={(e) => this.editSelectMoodCat(e, 2)} > Not So Great</DropdownItem>
-                                    <DropdownItem onClick={(e) => this.editSelectMoodCat(e, 1)} > Bad</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
+                            <Input type="select" id="editCopingMoodCategoryId" onChange={this.handleFieldChange} value={this.props.copingMechMoodCategory}>
+                                <option ></option>
+                                <option value={5}>Great</option>
+                                <option value={4}>Good</option>
+                                <option value={3}>Okay</option>
+                                <option value={2}>Not So Great</option>
+                                <option value={1}>Bad</option>
+                            </Input>
                         </Form >
                     </ModalBody>
                     <ModalFooter>

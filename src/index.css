@@ -59,6 +59,17 @@ body > #root {
   margin-top: 50px;
 }
 
+.delete-button {
+  background-color: transparent;
+  color: #D3524E;
+  border-radius: 25px;
+  padding: 15px 60px;
+  margin: auto;
+  margin-left: 20px;
+  border: 1px solid #D3524E;
+  margin-top: 50px;
+}
+
 .colin-heading {
   margin-top: 10vh;
   text-align: center;
@@ -176,3 +187,13 @@ a {
     color: white;
 }
 
+/* additions */
+.add-new-cm {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: -10px;
+}
+
+.dropdown-header{
+  color: #ff0000;
+}

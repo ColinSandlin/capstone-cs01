@@ -49,7 +49,7 @@ class NewRegulate extends Component {
                             <DropdownItem header>Great</DropdownItem>
                             {
                                 (this.props.greatMoods) ? (this.props.greatMoods.map(mood => {
-                                    return <DropdownItem key={`${mood.id}--${mood.moodCategoryId}`} onClick={(e) => this.props.select(e, 5)} style={{ fontFamily: 'Montserrat', marginTop: '7px', marginLeft: '8px' }}>{mood.name}</DropdownItem>
+                                    return <DropdownItem key={`${mood.id}--${mood.moodCategoryId}`} onClick={(e) => this.props.select(e, 5)} style={{ fontFamily: 'Montserrat', marginTop: '7px', marginLeft: '8px' }} className="dropdown-item">{mood.name} </DropdownItem>
                                 })) : null
                             }
                             <DropdownItem divider style={{ borderColor: '#466E75' }} />

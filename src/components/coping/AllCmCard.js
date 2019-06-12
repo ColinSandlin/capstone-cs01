@@ -7,9 +7,11 @@ import { getUserFromLocalStorage } from '../login/LoginHandler'
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import { thisTypeAnnotation } from "@babel/types";
 
-import { FiX } from "react-icons/fi"
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const theUserIdIs = getUserFromLocalStorage()
+
 
 export default class AllCmCard extends Component {
 
@@ -63,7 +65,9 @@ export default class AllCmCard extends Component {
             .then(() => this.setState({ editModal: false }))
     }
 
+
     deleteCm = (id) => {
+
         API.deleteMech(id)
             .then(() => this.props.loadCms())
             .then(() => this.setState({ editModal: false }))

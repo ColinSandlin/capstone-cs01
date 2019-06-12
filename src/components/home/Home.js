@@ -113,7 +113,7 @@ class Home extends Component {
     // All other functions to be passed down
     toggleAddModal = () => {
         this.setState(prevState => ({
-            addModal: !prevState.modal
+            addModal: !prevState.addModal
         }));
     }
 
@@ -277,7 +277,6 @@ class Home extends Component {
                                 dropdownOpen={this.state.dropdownOpen}
                                 handleFieldChange={this.handleFieldChange}
                                 toggleAddModal={this.toggleAddModal}
-                                toggleEditModal={this.toggleEditModal}
                                 toggleExpansion={this.toggleExpansion}
                                 selectMoodCat={this.selectMoodCat}
                                 editSelectMoodCat={this.editSelectMoodCat}

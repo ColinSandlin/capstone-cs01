@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 
-import { NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../../logo.svg'
 import secondaryLogo from '../../secondaryLogo-07.svg'
 import index from "../../index.css"
@@ -34,7 +34,7 @@ export default class TopNav extends React.Component {
                     <div>
                         <img src={secondaryLogo} className="secondaryLogo" alt="logo" />
                     </div>
-                    <NavLink to="/regulate/new" className="menuItem" activeClassName="currentLink"><FiSun style={{ marginRight: "10px", marginBottom: "5px" }} />Regulate</NavLink>
+                    <NavLink to="/regulate/new" className="menuItem" activeClassName="currentLink"><FiSun style={{ marginRight: "10px", marginBottom: "5px" }} />Check in</NavLink>
                     <NavLink to="/entries" className="menuItem" activeClassName="currentLink"><FiBookOpen style={{ marginRight: "10px", marginBottom: "5px" }} />Logged Entries</NavLink>
                     <NavLink to="/coping" className="menuItem" activeClassName="currentLink" ><FiShield style={{ marginRight: "10px", marginBottom: "5px" }} />Coping Mechanisms</NavLink>
                     <NavLink to="/stats" className="menuItem" activeClassName="currentLink"><FiBarChart2 style={{ marginRight: "10px", marginBottom: "5px" }} />Statistics</NavLink>

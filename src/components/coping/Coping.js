@@ -32,8 +32,9 @@ export default class Coping extends Component {
             <>
                 {
                     // Pulls up the "add new coping mech" entry form modal
-                    (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (<p onClick={this.props.toggleAddModal}><FiPlus />Add</p>) : null
+                    (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (<p onClick={this.props.toggleAddModal} className="add-new-cm"><FiPlus />  Add</p>) : null
                 }
+
                 <Carousel widgets={[IndicatorDots]} showArrows={true} >
 
                     {

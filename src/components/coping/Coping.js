@@ -31,6 +31,7 @@ export default class Coping extends Component {
         return (
             <>
                 {
+                    // Pulls up the "add new coping mech" entry form modal
                     (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (<p onClick={this.props.toggleAddModal}><FiPlus />Add</p>) : null
                 }
                 <Carousel widgets={[IndicatorDots]} showArrows={true} >
@@ -62,7 +63,20 @@ export default class Coping extends Component {
                                             })
                                         ) : (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (
                                             this.props.allCopingMechs.map(copingMech => {
-                                                return <AllCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} moodCategoryId={this.props.moodCategoryId} updateCmForm={this.props.updateCmForm} editModal={this.props.editModal} toggleEditModal={this.props.toggleEditModal} />
+                                                return <AllCmCard
+                                                    key={copingMech.id}
+                                                    copingMechId={copingMech.id}
+                                                    copingMechUrl={copingMech.url}
+                                                    copingMechTitle={copingMech.title}
+                                                    copingMechInfo={copingMech.info}
+                                                    copingMechInfo2={copingMech.info2}
+                                                    moodCategoryId={this.props.moodCategoryId}
+                                                    handleFieldChange={this.props.handleFieldChange}
+                                                    toggleDropdown={this.props.toggleDropdown}
+                                                    copingLabel={this.props.copingLabel}
+                                                    dropdownOpen={this.props.dropdownOpen}
+                                                    editCopingLabel={this.props.editCopingLabel}
+                                                    loadCms={this.props.loadCms} />
                                             })
                                         ) : null
                     }

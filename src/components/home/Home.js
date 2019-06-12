@@ -40,13 +40,12 @@ class Home extends Component {
         notSoGreatCopingMechs: [],
         badCopingMechs: [],
         addModal: false,
-        editModal: false,
         copingLabel: "Select a mood category for this coping mechanism",
-        title: "",
-        url: "",
-        info: "",
-        info2: "",
-        copingMoodCategoryId: ""
+        addTitle: "",
+        addUrl: "",
+        addInfo: "",
+        addInfo2: "",
+        addCopingMoodCategoryId: ""
     }
 
     //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
@@ -73,13 +72,12 @@ class Home extends Component {
             notSoGreatCopingMechs: [],
             badCopingMechs: [],
             addModal: false,
-            editModal: false,
             copingLabel: "Select a mood category for this coping mechanism",
-            AddTitle: "",
-            AddUrl: "",
-            AddInfo: "",
-            AddInfo2: "",
-            AddCopingMoodCategoryId: "",
+            addTitle: "",
+            addUrl: "",
+            addInfo: "",
+            addInfo2: "",
+            addCopingMoodCategoryId: "",
         }
 
 
@@ -116,11 +114,6 @@ class Home extends Component {
     toggleAddModal = () => {
         this.setState(prevState => ({
             addModal: !prevState.modal
-        }));
-    }
-    toggleEditModal = () => {
-        this.setState(prevState => ({
-            editModal: !prevState.modal
         }));
     }
 
@@ -181,7 +174,7 @@ class Home extends Component {
         this.setState({ dropdownOpen: !this.state.dropdownOpen });
     }
 
-    submitNewCmEntry = () => {
+    submitNewCmEntry = (value) => {
         const newState = {
             allCopingMechs: [],
             addModal: false
@@ -202,25 +195,17 @@ class Home extends Component {
 
     }
 
-    updateCmForm = () => {
-        const newObj = {
-            id: this.props.copingMechId,
-            userId: this.state.userId,
-            title: this.state.title,
-            url: this.state.url,
-            info: this.state.info,
-            info2: this.state.info2
+    // Fetch and get all coping mechanisms to display on the All coping mechanisms page
+    loadCms = () => {
+        const newState = {
+            allCopingMechs: []
         }
-        console.log("update", newObj)
-        let newState = {
-            specificCopingMech: [],
-            editModal: false
-        }
-        API.editCopingMech(this.props.copingMechId, newObj)
-            .then(() => API.getSpecificCopingMech(this.props.moodCategoryId))
-            .then(copingMechs => newState.specificCopingMech = copingMechs)
+        API.getAllCopingMechs()
+            .then(copingMechs => newState.allCopingMechs = copingMechs)
             .then(() => this.setState(newState))
     }
+
+
 
 
     render() {
@@ -280,7 +265,6 @@ class Home extends Component {
                                 {...props}
                                 {...this.props}
                                 moodCategoryId={this.state.moodCategoryId}
-                                user={this.state.user}
                                 onLogout={logout}
                                 greatCopingMechs={this.state.greatCopingMechs}
                                 goodCopingMechs={this.state.goodCopingMechs}
@@ -296,11 +280,13 @@ class Home extends Component {
                                 toggleEditModal={this.toggleEditModal}
                                 toggleExpansion={this.toggleExpansion}
                                 selectMoodCat={this.selectMoodCat}
+                                editSelectMoodCat={this.editSelectMoodCat}
                                 submitNewCmEntry={this.submitNewCmEntry}
                                 copingLabel={this.state.copingLabel}
                                 addModal={this.state.addModal}
                                 editModal={this.state.editModal}
-                                updateCmForm={this.updateCmForm}
+                                loadCms={this.loadCms}
+
                             />
                         </>)
                         : (<Redirect to="/login" />)

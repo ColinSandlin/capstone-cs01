@@ -63,6 +63,12 @@ export default class AllCmCard extends Component {
             .then(() => this.setState({ editModal: false }))
     }
 
+    deleteCm = (id) => {
+        API.deleteMech(id)
+            .then(() => this.props.loadCms())
+            .then(() => this.setState({ editModal: false }))
+    }
+
 
     render() {
         return (
@@ -70,6 +76,7 @@ export default class AllCmCard extends Component {
                 <article key={this.props.copingMechId} className="card" onDoubleClick={this.toggleEditModal}>
                     <div className="thumb" style={{ backgroundImage: `url(${this.props.copingMechUrl})` }}></div>
                     <div className="infos">
+                        <p className="double-click-message">Double-click the card to edit or delete</p>
                         <h2 className="title">{this.props.copingMechTitle}</h2>
                         <h3 className="date">{this.props.copingMechInfo}</h3>
                         <p className="txt">{this.props.copingMechInfo2}</p>
@@ -117,6 +124,7 @@ export default class AllCmCard extends Component {
                             </FormGroup>
                         </Form >
                         <button className="colin-button" onClick={() => this.updateCmForm(this.props.copingMechId)}>Submit Edit</button>
+                        <button className="delete-button" onClick={() => this.deleteCm(this.props.copingMechId)}>Delete</button>
                     </ModalBody>
                 </Modal>
             </>

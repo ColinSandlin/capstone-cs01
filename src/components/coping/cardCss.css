@@ -108,11 +108,23 @@
     opacity: 0;
     transition: 0.5s 0.25s cubic-bezier(0.17, 0.67, 0.5, 1.03);
   }
+
+  article.card .infos .double-click-message {
+    opacity: 0;
+    transform: translateY(-50px);
+    color: rgba(255, 255, 255, 0.8);
+    transition: 0.5s 0.25s cubic-bezier(0.17, 0.67, 0.5, 1.03);
+  }
+
+  article.card:hover .infos .double-click-message {
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+  }
   
   article.card:hover .infos {
     transform: translateY(-260px);
-    
   }
+  
   article.card:hover .infos .seats, article.card:hover .infos .txt, article.card:hover .infos .details {
     opacity: 1;
   }

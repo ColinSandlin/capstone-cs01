@@ -57,6 +57,15 @@ const API = {
             body: JSON.stringify(obj)
         })
             .then(e => e.json())
+    },
+    deleteMech: (id) => {
+        return fetch(`${db}/copingMechanisms/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(e => e.json())
     }
 }
 

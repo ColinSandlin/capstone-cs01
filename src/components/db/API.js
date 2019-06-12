@@ -47,6 +47,16 @@ const API = {
             },
             body: JSON.stringify(entryObj)
         }).then(response => response.json())
+    },
+    submitMech: (obj) => {
+        return fetch(`${db}/copingMechanisms`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        })
+            .then(e => e.json())
     }
 }
 

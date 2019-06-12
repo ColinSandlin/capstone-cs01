@@ -105,18 +105,17 @@ export default class Coping extends Component {
                                 <Label for="url">Image Url</Label>
                                 <Input type="text" name="url" id="addUrl" placeholder="Add a URL" onChange={this.props.handleFieldChange} />
                             </FormGroup>
-                            <Dropdown isOpen={this.props.dropdownOpen} toggle={this.props.toggleDropdown} id="addCopingMoodCategoryId">
-                                <DropdownToggle caret>
-                                    {this.props.copingLabel}
-                                </DropdownToggle>
-                                <DropdownMenu>
-                                    <DropdownItem onClick={(e) => this.props.selectMoodCat(e, 5)} > Great</DropdownItem>
-                                    <DropdownItem onClick={(e) => this.props.selectMoodCat(e, 4)} > Good</DropdownItem>
-                                    <DropdownItem onClick={(e) => this.props.selectMoodCat(e, 3)} > Okay</DropdownItem>
-                                    <DropdownItem onClick={(e) => this.props.selectMoodCat(e, 2)} > Not So Great</DropdownItem>
-                                    <DropdownItem onClick={(e) => this.props.selectMoodCat(e, 1)} > Bad</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
+                            <FormGroup>
+                                <Label for="addCopingMoodCategoryId">Mood Category</Label>
+                                <Input type="select" id="addCopingMoodCategoryId" onChange={this.props.handleFieldChange} >
+                                    <option></option>
+                                    <option value={5}>Great</option>
+                                    <option value={4}>Good</option>
+                                    <option value={3}>Okay</option>
+                                    <option value={2}>Not So Great</option>
+                                    <option value={1}>Bad</option>
+                                </Input>
+                            </FormGroup>
                         </Form >
                     </ModalBody>
                     <ModalFooter>

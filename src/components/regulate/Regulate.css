@@ -109,3 +109,11 @@
 .main-regulate-container > * {
   margin-top: 60px;
 }
+
+
+
+h2.colin-heading {
+  font-family: utopia-std-headline;
+  letter-spacing: 0em;
+  color: #2A404A;
+}

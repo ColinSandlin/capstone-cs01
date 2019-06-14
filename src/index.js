@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 import Home from "./components/home/Home";
 import 'bootstrap/dist/css/bootstrap.css';
-import "semantic-ui-css/semantic.min.css"
 import * as firebase from "firebase/app"
 
 import index from './index.css'

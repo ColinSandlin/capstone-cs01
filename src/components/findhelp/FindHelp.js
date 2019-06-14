@@ -35,9 +35,9 @@ export default class Contact extends Component {
                             <FiChevronDown style={{ color: "#2A404A", marginLeft: '20px' }} className={(this.state.chevron) ? ("collapse-chevron") : ("")} />
                         </IconContext.Provider>
                     </div>
-                    <Collapse isOpen={this.state.collapse} id="collapse-container">
-                        <Card>
-                            <CardBody id="collapse" >
+                    <Collapse isOpen={this.state.collapse} id="collapse-container" style={{ border: "none" }}>
+                        <Card style={{ border: "none" }}>
+                            <CardBody id="collapse" style={{ border: "none" }}>
                                 <h4>1. Use your own coping strategies – without contacting another person:</h4>
                                 <p>What are some things that you can do on your own to help you not act on thoughts/urges to harm yourself?</p>
                                 <hr></hr>

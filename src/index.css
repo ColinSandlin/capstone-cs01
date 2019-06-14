@@ -128,6 +128,7 @@ body > #root {
     right: 36px;
     top: 15px;
     color: #2A4D59;
+    z-index:  1050;
   }
   
   /* Color/shape of burger icon bars */
@@ -232,4 +233,9 @@ a:hover {
   text-align: center;
   margin-top: 30px;
   margin-bottom: -10px;
+}
+
+
+nav.navbar.navbar-light.sticky-top {
+  z-index: 900;
 }

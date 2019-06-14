@@ -28,7 +28,7 @@ class NewRegulate extends Component {
 
             <>
                 <div className="main-container">
-                    <h2 className="colin-heading">Check in.</h2>
+                    <h2 className="colin-heading" >Check in.</h2>
                     <Dropdown isOpen={this.props.dropdownOpen} toggle={this.props.toggleDropdown} className="dropdown-container" style={{ marginTop: '20vh' }} >
                         <DropdownToggle className="regulate-dropdown" style={{ display: 'flex', color: "#4F6D74", flexDirection: 'row', backgroundColor: 'transparent', padding: '10px', width: '50%', justifySelf: 'center', margin: 'auto', marginTop: '30px', border: '1px solid #4F6D74' }}>
                             <div className="button-container">

@@ -13,7 +13,7 @@ import { logout } from '../login/LoginHandler'
 
 
 let topNavStyles = {
-    backgroundColor: '#2A404A',
+    backgroundColor: '#D1E8E0',
 };
 
 

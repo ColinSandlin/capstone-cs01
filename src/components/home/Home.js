@@ -80,6 +80,7 @@ class Home extends Component {
             addInfo2: "",
             addCopingMoodCategoryId: "",
             allEntries: [],
+            locationResults: [],
         }
 
 
@@ -113,11 +114,11 @@ class Home extends Component {
 
             //Fetch all entries, put into state, and set state
             .then(() => API.getAllEntries())
-            .then(results => {
-                console.log(results)
-                newState.allEntries = results
-            }
-            )
+            .then(results => newState.allEntries = results)
+
+            //Fetch locations from API, 
+            .then(() => API.hereMaps())
+            .then(results => newState.locationResults = results.results.items)
 
             .then(() => this.setState(newState))
     }
@@ -318,7 +319,12 @@ class Home extends Component {
                     return this.state.user ? (
                         <>
                             <TopNav />
-                            <FindHelp {...props} user={this.state.user} onLogout={logout} />
+                            <FindHelp
+                                {...props}
+                                user={this.state.user}
+                                onLogout={logout}
+                                locationResults={this.state.locationResults}
+                            />
                         </>)
                         : (<Redirect to="/login" />)
                 }} />

@@ -1,13 +1,4 @@
-@font-face {
-    font-family: "Grotesque";
-    src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/397014/BrandonGrotesque-Regular.eot"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/397014/BrandonGrotesque-Regular.ttf"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/397014/BrandonGrotesque-Regular.woff");
-    font-weight: normal;
-  }
-  @font-face {
-    font-family: "Grotesque Black";
-    src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/397014/BrandonGrotesque-Black.eot"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/397014/BrandonGrotesque-Black.ttf"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/397014/BrandonGrotesque-Black.woff");
-    font-weight: bold;
-  }
+
   * {
     box-sizing: border-box;
   }
@@ -51,12 +42,9 @@
   article.card .infos .title {
     position: relative;
     margin: 10px 0;
-    letter-spacing: 3px;
-    color: #152536;
-    font-family: 'Grotesque Black', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    text-shadow: 0 0 0px #32577f;
+    color: #2A404A;
+    font-family: utopia-std-headline, serif;
+    font-size: 2.25rem;
   }
   article.card .infos .flag {
     color: grey;
@@ -74,7 +62,7 @@
     text-transform: uppercase;
     font-size: 0.85rem;
     color: rgba(21, 37, 54, .7);
-    font-family: 'Grotesque', sans-serif;
+    /* font-family: utopia-std-headline, serif; */
   }
   article.card .infos .seats {
     display: inline-block;

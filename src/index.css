@@ -1,13 +1,6 @@
-@font-face {
-  font-family: "Altero";
-  src: url(./components/fonts/Altero-Regular.otf) format('otf')
-}
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Altero';
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
+
+
 
 *:focus {
   outline-color: transparent;
@@ -65,7 +58,6 @@ body > #root {
   margin: auto;
   border: none;
   margin-top: 50px;
-  font-family: 'Altero';
 }
 
 .delete-button {
@@ -77,18 +69,16 @@ body > #root {
   margin-left: 20px;
   border: 1px solid #D3524E;
   margin-top: 50px;
-  font-family: 'Altero';
 }
 
 .colin-heading {
   margin-top: 10vh;
   text-align: center;
+  letter-spacing: .1em;
+  font-family: utopia-std-headline, serif;
+  font-weight: 400;
+  font-style: normal;
 }
-
-/* .dropdown-toggle,
-.dropdown-menu {
-  width: 100%;
-} */
 
 .colin-input {
   width: 50vw;
@@ -127,7 +117,6 @@ body > #root {
   font-size: 1em;
   text-transform: uppercase;
   letter-spacing: .2em;
-  font-family: 'Knockout';
 }
 
 /* hamburgermenu */
@@ -138,12 +127,12 @@ body > #root {
     height: 20px;
     right: 36px;
     top: 15px;
-    color: #8FC6BB;
+    color: #2A4D59;
   }
   
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: #BADED2;
+    background: #2A4D59;
   }
   
   /* Color/shape of burger icon bars on hover*/
@@ -169,7 +158,6 @@ body > #root {
   .bm-menu-wrap {
     position: fixed;
     height: 100%;
-    border-top: 1px solid rgba(0, 0, 0, 0.35);
   }
   
   /* General sidebar styles */
@@ -193,6 +181,20 @@ body > #root {
   
   /* Individual item */
   .bm-item {
+    display: 'inline-block';
+    /* box-shadow: inset 0 -1px rgba(0, 0, 0, 0.35); */
+    padding: 1em;
+    color: #C7E5DE;
+  }
+
+  .bm-item:nth-child(1) {
+    display: 'inline-block';
+    box-shadow: inset 0 -1px rgba(0, 0, 0, 0.35);
+    padding: 1em;
+    color: #C7E5DE;
+  }
+
+  .bm-item:nth-child(6) {
     display: 'inline-block';
     box-shadow: inset 0 -1px rgba(0, 0, 0, 0.35);
     padding: 1em;
@@ -230,8 +232,4 @@ a:hover {
   text-align: center;
   margin-top: 30px;
   margin-bottom: -10px;
-}
-
-.dropdown-header{
-  color: #ff0000;
 }

@@ -162,17 +162,13 @@ class Home extends Component {
             dateLogged: splitTime,
             moodCategoryId: this.state.moodCategoryId,
             selectedMood: this.state.selectedMood,
-            description: this.props.description
+            description: this.state.description
         }
 
         API.submitEntry(newEntryObj)
-            .then(_result => {
-                console.log(_result)
-            })
-
-        setTimeout(() => {
-            this.props.history.push('/coping')
-        }, 3200);
+            .then(() => API.getAllEntries())
+            .then(results => this.setState({ allEntries: results }))
+            .then(() => setTimeout(() => this.props.history.push('/coping'), 3200))
     }
 
     select = (event, value) => {

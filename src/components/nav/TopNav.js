@@ -38,7 +38,7 @@ export default class TopNav extends React.Component {
                     <NavLink to="/entries" className="menuItem" activeClassName="currentLink"><FiBookOpen style={{ marginRight: "10px", marginBottom: "5px" }} />Logged Checkins</NavLink>
                     <NavLink to="/coping" className="menuItem" activeClassName="currentLink" ><FiShield style={{ marginRight: "10px", marginBottom: "5px" }} />My Toolbox</NavLink>
                     <NavLink to="/stats" className="menuItem" activeClassName="currentLink"><FiBarChart2 style={{ marginRight: "10px", marginBottom: "5px" }} />Statistics</NavLink>
-                    <NavLink to="/findhelp" className="menuItem" activeClassName="currentLink"><FiSearch style={{ marginRight: "10px", marginBottom: "5px" }} />Support</NavLink>
+                    <NavLink to="/support" className="menuItem" activeClassName="currentLink"><FiSearch style={{ marginRight: "10px", marginBottom: "5px" }} />Support</NavLink>
                     {/* <NavLink to="/profile" className="menuItem" activeClassName="currentLink"><FiUser style={{ marginRight: "10px", marginBottom: "5px" }} />User Profile</NavLink> */}
                     <NavLink to="/login" onClick={logout} className="menuItem" activeClassName="currentLink"><FiCornerDownLeft style={{ marginRight: "10px", marginBottom: "5px" }} />Logout</NavLink>
                 </Menu>

@@ -85,7 +85,7 @@ class NewRegulate extends Component {
 
                     <input className="colin-input" type="text" placeholder="Notes - try to keep it shorter than a tweet" onChange={(e) => this.props.changeDesc(e)} style={{ fontFamily: 'Montserrat', color: "#2A404A" }}></input>
                     <div className="main">
-                        <button style={{ outline: 0 }} className="button" onClick={this.props.logNewEntry} >SUBMIT</button>
+                        <button style={{ outline: 0 }} className="button" onClick={this.props.logNewEntry} >Submit</button>
                         <div className={["loader", (this.props.loader ? "active" : '')].join(' ')} onAnimationEnd={() => this.setState({ check: true })}>
                             <div className={["check", (this.state.check ? "active" : '')].join(' ')}>
                                 <FiCheck className="check-one" />

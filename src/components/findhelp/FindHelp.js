@@ -38,22 +38,22 @@ export default class Contact extends Component {
                     <Collapse isOpen={this.state.collapse} id="collapse-container" style={{ border: "none" }}>
                         <Card style={{ border: "none" }}>
                             <CardBody id="collapse" style={{ border: "none" }}>
-                                <h4>1. Use your own coping strategies – without contacting another person:</h4>
+                                <p>1. Use your own coping strategies – without contacting another person:</p>
                                 <p>What are some things that you can do on your own to help you not act on thoughts/urges to harm yourself?</p>
                                 <hr></hr>
-                                <h4>2. Socialize with others who may offer support as well as distraction from the crisis:</h4>
+                                <p>2. Socialize with others who may offer support as well as distraction from the crisis:</p>
                                 <p>Make a list of people (with phone numbers) and social settings that may help take your mind off things.</p>
                                 <hr></hr>
-                                <h4>3. Contact family members or friends who may help to resolve a crisis:</h4>
+                                <p>3. Contact family members or friends who may help to resolve a crisis:</p>
                                 <p>Make a list of family members (with phone numbers) who are supportive and who you feel you can talk to when under stress.</p>
                                 <hr></hr>
-                                <h4>4. Contact mental health professionals or agencies:</h4>
+                                <p>4. Contact mental health professionals or agencies:</p>
                                 <p> List names, numbers and/or locations of clinicians, local emergency rooms, crisis hotlines – carry the Lifeline number 1-800-273-8255</p>
                                 <hr></hr>
-                                <h4>5. Ensure your environment is safe: </h4>
+                                <p>5. Ensure your environment is safe: </p>
                                 <p>Have you thought of ways in which you might harm yourself? Work with your counselor to develop a plan to limit your access to these means.</p>
                                 <hr></hr>
-                                <h4>Last Resorts</h4>
+                                <p>Last Resorts</p>
                                 <p>1-800-273-TALK (8255)</p>
                                 <p>1-800-799-4TTY (4889)  TTY</p>
                             </CardBody>

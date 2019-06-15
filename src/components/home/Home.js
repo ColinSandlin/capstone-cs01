@@ -310,7 +310,7 @@ class Home extends Component {
                         </>)
                         : (<Redirect to="/login" />)
                 }} />
-                <Route exact path="/findhelp" render={(props) => {
+                <Route exact path="/support" render={(props) => {
                     return this.state.user ? (
                         <>
                             <TopNav />

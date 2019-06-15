@@ -8,7 +8,13 @@
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);
+    transition: all .2s ease-in-out;
 }
+
+.entry-overall-container:hover {
+    transform: scale(1.05);
+}
+
 .entry-info-container {
     display: flex;
     flex-direction: column;
@@ -17,14 +23,14 @@
 
 .entry-mood-category {
     font-size: 1em;
-    text-transform: uppercase;
-    font-family: balboa, sans-serif;
-    font-weight: 300;
+    /* text-transform: uppercase; */
+    font-family: granville, serif;
+    font-weight: 400;
     font-style: normal;
-    color: #D8D8D8;
+    color: #fff;
     margin: 0;
+    margin-left: 10px;
     padding: 5px;
-    letter-spacing: 0.5px;
 }
 
 .entry-date-container {
@@ -41,7 +47,8 @@
     font-family: balboa, sans-serif;
     font-weight: 300;
     font-style: normal;
-    color: #D8D8D8;
+    letter-spacing: .5px;
+    color: #fff;
     margin: 0;
 }
 .entry-date-time{
@@ -49,8 +56,9 @@
     text-transform: uppercase;
     font-family: balboa, sans-serif;
     font-weight: 300;
+    letter-spacing: .5px;
     font-style: normal;
-    color: #D8D8D8;
+    color: #fff;
     margin: 0;
     margin-right: 30px;
 }
@@ -60,9 +68,9 @@
     flex-direction: column;
 }
 .entry-mood{
-    font-size: 2em;
-    font-family: balboa, sans-serif;
-    font-weight: 500;
+    font-size: 1.75em;
+    font-family: granville, serif;
+    font-weight: 700;
     font-style: normal;
     color: #4F6D74;
     margin-bottom: 0px;
@@ -72,7 +80,7 @@
     font-family: balboa, sans-serif;
     font-weight: 200;
     font-style: normal;
-    color: #D8D8D8;
+    color: rgb(172, 172, 172);
     margin: 0;
     padding: 5px;
     letter-spacing: 0.5px;

@@ -16,6 +16,10 @@
     transition: all .1s ease-in-out;
     margin: auto;
     margin-top: 100px;
+    font-family: balboa, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    letter-spacing: .05em;
   }
   
   .button:hover {
@@ -113,7 +117,9 @@
 
 
 h2.colin-heading {
-  font-family: utopia-std-headline;
+  font-family: granville, serif;
+    font-weight: 400;
+    font-style: normal;
   letter-spacing: 0em;
   color: #2A404A;
 }

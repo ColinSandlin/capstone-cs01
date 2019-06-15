@@ -51,6 +51,20 @@ font-style: normal;
   outline-style: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: granville, serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #2A404A;
+}
+
+p {
+  font-family: balboa, sans-serif;
+font-weight: 300;
+font-style: normal;
+color: #2A404A;
+}
+
 
 body > #root {
   height: 100vh;
@@ -230,6 +244,10 @@ body > #root {
     /* box-shadow: inset 0 -1px rgba(0, 0, 0, 0.35); */
     padding: 1em;
     color: #C7E5DE;
+    font-family: brandon-grotesque, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    /* letter-spacing: .05em; */
   }
 
   .bm-item:nth-child(1) {

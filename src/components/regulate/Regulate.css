@@ -34,8 +34,8 @@
     height: 50px;
     background: transparent; 
     margin: 30px auto 0 auto;
-    border: solid 2px #fff;
-    border-top: solid 2px #2A404A;
+    border: solid 2px rgb(102, 164, 165);
+    border-top: solid 2px rgb(230, 245, 252);
     border-radius: 50%;
     opacity: 0;
   }
@@ -58,14 +58,14 @@
   }
   
   .loader.active {
-    animation: loading 2s ease-in-out; 
+    animation: loading 1.5s ease-in-out; 
     animation-fill-mode: forwards;
   }
   
   .check.active {
     opacity: 1;
     transform: translate3d(0px,0px,0);
-    transition-delay: .2s;
+    /* transition-delay: .2s; */
     width: 5em;
   }
   

@@ -1,5 +1,49 @@
+/* 
+Balboa Medium
+font-family: balboa, sans-serif;
+font-weight: 500;
+font-style: normal;
 
+Balboa ExtraBlack
+font-family: balboa, sans-serif;
+font-weight: 900;
+font-style: normal;
 
+Balboa Bold
+font-family: balboa, sans-serif;
+font-weight: 600;
+font-style: normal;
+
+Balboa UltraLight
+font-family: balboa, sans-serif;
+font-weight: 200;
+font-style: normal;
+
+Balboa ExtraBold
+font-family: balboa, sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Balboa Light
+font-family: balboa, sans-serif;
+font-weight: 300;
+font-style: normal;
+
+Balboa Black
+font-family: balboa, sans-serif;
+font-weight: 800;
+font-style: normal;
+
+Balboa ExtraCondensed
+font-family: balboa-extra-condensed, sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Balboa Condensed
+font-family: balboa-condensed, sans-serif;
+font-weight: 400;
+font-style: normal;
+ */
 
 
 *:focus {
@@ -238,4 +282,9 @@ a:hover {
 
 nav.navbar.navbar-light.sticky-top {
   z-index: 900;
+}
+
+
+#main-body {
+  background-color: #BADED2;
 }

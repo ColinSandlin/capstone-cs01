@@ -13,6 +13,7 @@ import NewRegulate from '../regulate/NewRegulate'
 import Entries from '../entries/Entries'
 import { getUserFromLocalStorage, logout } from '../login/LoginHandler'
 import API from "../db/API"
+import moment from "moment";
 
 
 let greatArray;
@@ -152,14 +153,12 @@ class Home extends Component {
     }
 
     logNewEntry = () => {
-        const time = new Date()
-        const splitTime = time.toLocaleTimeString().split(":").join('.')
 
         this.setState({ loader: true })
 
         let newEntryObj = {
             userId: this.state.user.id,
-            dateLogged: splitTime,
+            dateLogged: moment(),
             moodCategoryId: this.state.moodCategoryId,
             selectedMood: this.state.selectedMood,
             description: this.state.description

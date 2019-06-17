@@ -13,7 +13,7 @@ import { getUserFromLocalStorage } from '../login/LoginHandler'
 
 import API from "../db/API"
 
-import { FiPlus } from "react-icons/fi"
+import { FiPlus, FiGrid } from "react-icons/fi"
 
 
 const theUserIdIs = getUserFromLocalStorage()
@@ -32,7 +32,11 @@ export default class Coping extends Component {
             <>
                 {
                     // Pulls up the "add new coping mech" entry form modal
-                    (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (<p onClick={this.props.toggleAddModal} className="add-new-cm"><FiPlus />  Add</p>) : null
+                    (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (<p onClick={this.props.toggleAddModal} className="add-new-cm"><FiPlus style={{ marginBottom: '4px' }} />  Add</p>) : null
+                }
+                {
+                    // Pulls up the "add new coping mech" entry form modal
+                    (this.props.moodCategoryId !== "") ? (<p onClick={this.props.showAllCards} className="add-new-cm"><FiGrid style={{ marginBottom: '4px' }} />  View All</p>) : null
                 }
 
                 <Carousel widgets={[IndicatorDots]} showArrows={true} >

@@ -26,7 +26,7 @@ export default class TopNav extends React.Component {
 
 
         return (
-            <IconContext.Provider value={{ size: "1.3em" }}>
+            <IconContext.Provider value={{ size: "1em" }}>
                 <Navbar style={topNavStyles} light sticky="top">
                     <NavbarBrand href="/" className="mr-auto"><img src={logo} className="App-logo" alt="logo" /></NavbarBrand>
                 </Navbar>

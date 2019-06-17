@@ -1,14 +1,16 @@
-import React, { Component } from "react";
+import React from 'react';
+import { Doughnut } from 'react-chartjs-2';
+import Statscss from "./Statscss.css"
 
 
+export default class Stats extends React.Component {
 
-export default class Stats extends Component {
+
     render() {
         return (
-
-            <h1>hey</h1>
-
-
-        )
+            <div>
+                <Doughnut data={this.props.donutData} />
+            </div>
+        );
     }
 }

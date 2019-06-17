@@ -48,6 +48,7 @@ class Home extends Component {
         addInfo2: "",
         addCopingMoodCategoryId: "",
         allEntries: [],
+        donutData: [],
     }
 
     //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
@@ -82,6 +83,12 @@ class Home extends Component {
             addCopingMoodCategoryId: "",
             allEntries: [],
             locationResults: [],
+            cat5Entries: [],
+            cat4Entries: [],
+            cat3Entries: [],
+            cat2Entries: [],
+            cat1Entries: [],
+            donutData: [],
         }
 
 
@@ -121,7 +128,22 @@ class Home extends Component {
             .then(() => API.hereMaps())
             .then(results => newState.locationResults = results.results.items)
 
+            //Fetch Logged Entries sorted by MoodCategoryId
+            .then(() => API.getSpecificEntryCategory(5))
+            .then(cat5 => newState.cat5Entries = cat5)
+            .then(() => API.getSpecificEntryCategory(4))
+            .then(cat4 => newState.cat4Entries = cat4)
+            .then(() => API.getSpecificEntryCategory(3))
+            .then(cat3 => newState.cat3Entries = cat3)
+            .then(() => API.getSpecificEntryCategory(2))
+            .then(cat2 => newState.cat2Entries = cat2)
+            .then(() => API.getSpecificEntryCategory(1))
+            .then(cat1 => newState.cat1Entries = cat1)
+
             .then(() => this.setState(newState))
+
+            // Create data necessary for the donut graph
+            .then(() => this.getDonutData())
     }
 
     // All other functions to be passed down
@@ -184,6 +206,21 @@ class Home extends Component {
         API.submitEntry(newEntryObj)
             .then(() => API.getAllEntries())
             .then(results => this.setState({ allEntries: results }))
+            // refetching entries from specific categories of moods and setting in state
+            .then(() => API.getSpecificEntryCategory(5))
+            .then(cat5 => this.setState({ cat5Entries: cat5 }))
+            .then(() => API.getSpecificEntryCategory(4))
+            .then(cat4 => this.setState({ cat4Entries: cat4 }))
+            .then(() => API.getSpecificEntryCategory(3))
+            .then(cat3 => this.setState({ cat3Entries: cat3 }))
+            .then(() => API.getSpecificEntryCategory(2))
+            .then(cat2 => this.setState({ cat2Entries: cat2 }))
+            .then(() => API.getSpecificEntryCategory(1))
+            .then(cat1 => this.setState({ cat1Entries: cat1 }))
+
+            // Create data necessary for the donut graph
+            .then(() => this.getDonutData())
+            // after the animation ends, redirect to coping mechanisms
             .then(() => setTimeout(() => this.props.history.push('/coping'), 3200))
     }
 
@@ -230,8 +267,19 @@ class Home extends Component {
             .then(() => this.setState(newState))
     }
 
+    getDonutData = () => {
+        if (this.state.cat5Entries.length !== 0) {
+            let donutdata = {
+                labels: ['Great', 'Good', 'Neutral', 'Not Great', 'Bad'],
+                datasets: [{
+                    data: [this.state.cat5Entries.length, this.state.cat4Entries.length, this.state.cat3Entries.length, this.state.cat2Entries.length, this.state.cat1Entries.length],
+                    backgroundColor: ['#8FC6BB', '#BADED2', '#F4D28E', '#E8C5C1', '#DB968D']
+                }]
+            }
 
-
+            this.setState({ donutData: donutdata })
+        }
+    }
 
     render() {
         return (
@@ -323,7 +371,17 @@ class Home extends Component {
                     return this.state.user ? (
                         <>
                             <TopNav />
-                            <Stats {...props} user={this.state.user} onLogout={logout} />
+                            <Stats {...props}
+                                user={this.state.user}
+                                onLogout={logout}
+                                allEntries={this.state.allEntries}
+                                cat5Entries={this.state.cat5Entries}
+                                cat4Entries={this.state.cat4Entries}
+                                cat3Entries={this.state.cat3Entries}
+                                cat2Entries={this.state.cat2Entries}
+                                cat1Entries={this.state.cat1Entries}
+                                donutData={this.state.donutData}
+                            />
                         </>)
                         : (<Redirect to="/login" />)
                 }} />

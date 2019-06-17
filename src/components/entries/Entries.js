@@ -14,7 +14,7 @@ export default class Entries extends Component {
     }
 
     formatTime = (dateLogged) => {
-        let time = moment(dateLogged).format("HH:mm a");
+        let time = moment(dateLogged).format("hh:mm A");
         return time
     }
 

@@ -222,12 +222,12 @@
     },
     {
       "id": 3,
-      "name": "Okay",
+      "name": "Neutral",
       "score": 3
     },
     {
       "id": 2,
-      "name": "Not So Great",
+      "name": "Not Great",
       "score": 2
     },
     {
@@ -343,6 +343,94 @@
       "selectedMood": "Angry",
       "description": "My friends went and hung out without letting me know.",
       "id": 3
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-16T19:09:56.116Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Discouraged",
+      "description": "Discouraging things are discouraging",
+      "id": 4
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-16T19:28:08.712Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Discouraged",
+      "description": "I have not watched my weight this week",
+      "id": 5
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-16T19:28:57.079Z",
+      "moodCategoryId": 3,
+      "selectedMood": "Neutral",
+      "description": "I feel like I'm in neutral in life",
+      "id": 6
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T13:57:11.834Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Thankful",
+      "description": "because its monday",
+      "id": 7
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:03:09.871Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Peaceful",
+      "description": "peace dawg",
+      "id": 8
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:06:26.745Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Excited",
+      "description": "Excited to get this thing over with!",
+      "id": 9
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:09:59.070Z",
+      "moodCategoryId": 3,
+      "selectedMood": "Mixed Up",
+      "description": "All Mixed up like 311",
+      "id": 10
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:10:34.675Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Self Critical",
+      "description": "I'm my own worst critic",
+      "id": 11
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:11:49.936Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Joyful",
+      "description": "asdfasdf",
+      "id": 12
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:13:10.270Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Peaceful",
+      "description": "Peace and love homies",
+      "id": 13
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:13:35.326Z",
+      "moodCategoryId": 4,
+      "selectedMood": "Kind",
+      "description": "Kind of scary",
+      "id": 14
     }
   ]
 }

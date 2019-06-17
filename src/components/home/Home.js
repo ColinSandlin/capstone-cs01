@@ -152,6 +152,20 @@ class Home extends Component {
         this.setState({ description: e.target.value })
     }
 
+
+    resetState = () => {
+        const origState = {
+            dateLogged: "",
+            moodCategoryId: "",
+            selectedMood: "",
+            description: "",
+            label: "I'm feeling...",
+            loader: false,
+            check: false,
+        }
+        this.setState(origState)
+    }
+
     logNewEntry = () => {
 
         this.setState({ loader: true })
@@ -225,7 +239,7 @@ class Home extends Component {
                     return this.state.user ? (
                         <>
                             <TopNav />
-                            <Regulate {...props} {...this.props} user={this.state.user} onLogout={logout} />
+                            <Regulate {...props} {...this.props} user={this.state.user} onLogout={logout} resetState={this.resetState} />
                         </>)
                         : (<Redirect to="/login" />)
                 }} />

@@ -16,6 +16,10 @@
     transition: all .1s ease-in-out;
     margin: auto;
     margin-top: 100px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: .05em;
   }
   
   .button:hover {
@@ -34,8 +38,8 @@
     height: 50px;
     background: transparent; 
     margin: 30px auto 0 auto;
-    border: solid 2px #fff;
-    border-top: solid 2px #2A404A;
+    border: solid 2px rgb(102, 164, 165);
+    border-top: solid 2px rgb(230, 245, 252);
     border-radius: 50%;
     opacity: 0;
   }
@@ -58,14 +62,14 @@
   }
   
   .loader.active {
-    animation: loading 2s ease-in-out; 
+    animation: loading 1.5s ease-in-out; 
     animation-fill-mode: forwards;
   }
   
   .check.active {
     opacity: 1;
     transform: translate3d(0px,0px,0);
-    transition-delay: .2s;
+    /* transition-delay: .2s; */
     width: 5em;
   }
   
@@ -113,7 +117,37 @@
 
 
 h2.colin-heading {
-  font-family: utopia-std-headline;
+  font-family: granville, serif;
+    font-weight: 400;
+    font-style: normal;
   letter-spacing: 0em;
+  font-size: 4em;
+  color: #2A404A;
+}
+
+#dropdown-menu {
+  background-color: #D1E8E0;
+  border: none;
+  margin-left: 23%;
+  border-radius: none;
+  width: 50%;
+  margin-top: 10px;
+  overflow-x: hidden;
+  color: red;
+}
+
+button.dropdown-item.dropdown-item {
+  margin-top: 7px;
+  margin-left: 8px;
+}
+
+#dropdown-lable {
+  margin-top: 7px;
+  margin-left: 8px;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.colin-input {
   color: #2A404A;
 }

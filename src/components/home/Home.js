@@ -13,6 +13,7 @@ import NewRegulate from '../regulate/NewRegulate'
 import Entries from '../entries/Entries'
 import { getUserFromLocalStorage, logout } from '../login/LoginHandler'
 import API from "../db/API"
+import moment from "moment";
 
 
 let greatArray;
@@ -151,15 +152,27 @@ class Home extends Component {
         this.setState({ description: e.target.value })
     }
 
+
+    resetState = () => {
+        const origState = {
+            dateLogged: "",
+            moodCategoryId: "",
+            selectedMood: "",
+            description: "",
+            label: "I'm feeling...",
+            loader: false,
+            check: false,
+        }
+        this.setState(origState)
+    }
+
     logNewEntry = () => {
-        const time = new Date()
-        const splitTime = time.toLocaleTimeString().split(":").join('.')
 
         this.setState({ loader: true })
 
         let newEntryObj = {
             userId: this.state.user.id,
-            dateLogged: splitTime,
+            dateLogged: moment(),
             moodCategoryId: this.state.moodCategoryId,
             selectedMood: this.state.selectedMood,
             description: this.state.description
@@ -226,7 +239,7 @@ class Home extends Component {
                     return this.state.user ? (
                         <>
                             <TopNav />
-                            <Regulate {...props} {...this.props} user={this.state.user} onLogout={logout} />
+                            <Regulate {...props} {...this.props} user={this.state.user} onLogout={logout} resetState={this.resetState} />
                         </>)
                         : (<Redirect to="/login" />)
                 }} />
@@ -311,7 +324,7 @@ class Home extends Component {
                         </>)
                         : (<Redirect to="/login" />)
                 }} />
-                <Route exact path="/findhelp" render={(props) => {
+                <Route exact path="/support" render={(props) => {
                     return this.state.user ? (
                         <>
                             <TopNav />

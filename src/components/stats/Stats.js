@@ -6,7 +6,7 @@ export default class Stats extends Component {
     render() {
         return (
 
-            <h1>My Stats Page</h1>
+            <h1>hey</h1>
 
 
         )

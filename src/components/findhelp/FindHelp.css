@@ -40,6 +40,6 @@ body {
 }
 
 .collapse-chevron {
-    transition: all .5s ease;
+    transition: all .5s ease-in-out;
     transform: rotate(180deg);
 }

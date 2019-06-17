@@ -17,6 +17,7 @@ export default class Regulate extends Component {
     }
 
     newRegulateEntry = () => {
+        this.props.resetState();
         this.props.history.push('/regulate/new')
     }
 

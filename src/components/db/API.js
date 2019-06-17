@@ -75,6 +75,10 @@ const API = {
     hereMaps: () => {
         return fetch(`https://places.demo.api.here.com/places/v1/discover/search?at=36.1373%2C-86.7557&q=mental%20health&size=20&app_id=${appId}&app_code=${appCode}`)
             .then(results => results.json())
+    },
+    getSpecificEntryCategory: (value) => {
+        return fetch(`${db}/loggedEntries/?userId=${currentUser}&moodCategoryId=${value}`)
+            .then(results => results.json())
     }
 }
 

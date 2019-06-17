@@ -48,7 +48,9 @@ class Home extends Component {
         addInfo2: "",
         addCopingMoodCategoryId: "",
         allEntries: [],
-        donutData: [],
+        donutData: { data: { datasets: [], labels: [] } },
+        weeksEntries: [],
+        monthsEntries: [],
     }
 
     //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
@@ -88,7 +90,9 @@ class Home extends Component {
             cat3Entries: [],
             cat2Entries: [],
             cat1Entries: [],
-            donutData: [],
+            donutData: { data: { datasets: [], labels: [] } },
+            weeksEntries: [],
+            monthsEntries: [],
         }
 
 
@@ -144,6 +148,8 @@ class Home extends Component {
 
             // Create data necessary for the donut graph
             .then(() => this.getDonutData())
+            .then(() => this.entriesThisWeek())
+            .then(() => this.entriesThisMonth())
     }
 
     // All other functions to be passed down
@@ -220,6 +226,8 @@ class Home extends Component {
 
             // Create data necessary for the donut graph
             .then(() => this.getDonutData())
+            .then(() => this.entriesThisWeek())
+            .then(() => this.entriesThisMonth())
             // after the animation ends, redirect to coping mechanisms
             .then(() => setTimeout(() => this.props.history.push('/coping'), 3200))
     }
@@ -268,7 +276,7 @@ class Home extends Component {
     }
 
     getDonutData = () => {
-        if (this.state.cat5Entries.length !== 0) {
+        if (this.state.cat5Entries) {
             let donutdata = {
                 labels: ['Great', 'Good', 'Neutral', 'Not Great', 'Bad'],
                 datasets: [{
@@ -279,6 +287,38 @@ class Home extends Component {
 
             this.setState({ donutData: donutdata })
         }
+    }
+
+    entriesThisWeek = () => {
+        let weeksEntries = [];
+        const today = moment(new Date());
+        const from_date = moment().startOf('week');
+        const to_date = moment().endOf('week');
+
+        this.state.allEntries.map(entry => {
+            if (moment(entry.dateLogged).isBetween(from_date, to_date)) {
+                weeksEntries.push(today)
+            } else {
+                console.log("not")
+            }
+        })
+        this.setState({ weeksEntries: weeksEntries })
+    }
+
+    entriesThisMonth = () => {
+        let monthsEntries = [];
+        const today = moment(new Date());
+        const from_date = moment().startOf('month');
+        const to_date = moment().endOf('month');
+
+        this.state.allEntries.map(entry => {
+            if (moment(entry.dateLogged).isBetween(from_date, to_date)) {
+                monthsEntries.push(today)
+            } else {
+                console.log("not")
+            }
+        })
+        this.setState({ monthsEntries: monthsEntries })
     }
 
     render() {
@@ -381,6 +421,8 @@ class Home extends Component {
                                 cat2Entries={this.state.cat2Entries}
                                 cat1Entries={this.state.cat1Entries}
                                 donutData={this.state.donutData}
+                                weeksEntries={this.state.weeksEntries}
+                                monthsEntries={this.state.monthsEntries}
                             />
                         </>)
                         : (<Redirect to="/login" />)

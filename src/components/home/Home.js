@@ -51,6 +51,7 @@ class Home extends Component {
         donutData: { data: { datasets: [], labels: [] } },
         weeksEntries: [],
         monthsEntries: [],
+        lineData: [],
     }
 
     //ComponentDidMount - for when you want something to happen as soon as the DOM is rendered, and not before.
@@ -93,6 +94,7 @@ class Home extends Component {
             donutData: { data: { datasets: [], labels: [] } },
             weeksEntries: [],
             monthsEntries: [],
+            lineData: [],
         }
 
 
@@ -150,6 +152,7 @@ class Home extends Component {
             .then(() => this.getDonutData())
             .then(() => this.entriesThisWeek())
             .then(() => this.entriesThisMonth())
+            .then(() => this.getLineData())
     }
 
     // All other functions to be passed down
@@ -298,8 +301,6 @@ class Home extends Component {
         this.state.allEntries.map(entry => {
             if (moment(entry.dateLogged).isBetween(from_date, to_date)) {
                 weeksEntries.push(today)
-            } else {
-                console.log("not")
             }
         })
         this.setState({ weeksEntries: weeksEntries })
@@ -314,11 +315,73 @@ class Home extends Component {
         this.state.allEntries.map(entry => {
             if (moment(entry.dateLogged).isBetween(from_date, to_date)) {
                 monthsEntries.push(today)
-            } else {
-                console.log("not")
             }
         })
         this.setState({ monthsEntries: monthsEntries })
+    }
+
+    getLineData = () => {
+
+        let group1Entries = [];
+        let group2Entries = [];
+        let group3Entries = [];
+        let group4Entries = [];
+        let group5Entries = [];
+        let group6Entries = [];
+
+        // use moment to find dates between other dates
+        const from_date1 = moment().month(0).date(1).hours(0).minutes(0).seconds(0).milliseconds(0);
+        const to_date1 = moment(from_date1).endOf('month');
+        const from_date2 = moment().month(1).date(1).hours(0).minutes(0).seconds(0).milliseconds(0);
+        const to_date2 = moment(from_date2).endOf('month');
+        const from_date3 = moment().month(2).date(1).hours(0).minutes(0).seconds(0).milliseconds(0);
+        const to_date3 = moment(from_date3).endOf('month');
+        const from_date4 = moment().month(3).date(1).hours(0).minutes(0).seconds(0).milliseconds(0);
+        const to_date4 = moment(from_date4).endOf('month');
+        const from_date5 = moment().month(4).date(1).hours(0).minutes(0).seconds(0).milliseconds(0);
+        const to_date5 = moment(from_date5).endOf('month');
+        const from_date6 = moment().month(5).date(1).hours(0).minutes(0).seconds(0).milliseconds(0);
+        const to_date6 = moment(from_date6).endOf('month');
+
+        if (this.state.allEntries) {
+            // for each entry, sort into array for the particular month
+            this.state.allEntries.map(entry => {
+                if (moment(entry.dateLogged).isBetween(from_date1, to_date1)) {
+                    group1Entries.push(entry.moodCategoryId)
+                } else if (moment(entry.dateLogged).isBetween(from_date2, to_date2)) {
+                    group2Entries.push(entry.moodCategoryId)
+                } else if (moment(entry.dateLogged).isBetween(from_date3, to_date3)) {
+                    group3Entries.push(entry.moodCategoryId)
+                } else if (moment(entry.dateLogged).isBetween(from_date4, to_date4)) {
+                    group4Entries.push(entry.moodCategoryId)
+                } else if (moment(entry.dateLogged).isBetween(from_date5, to_date5)) {
+                    group5Entries.push(entry.moodCategoryId)
+                } else if (moment(entry.dateLogged).isBetween(from_date6, to_date6)) {
+                    group6Entries.push(entry.moodCategoryId)
+                }
+            })
+
+            // add up values in each month's array
+            let group1value = group1Entries.reduce((a, b) => a + b, 0)
+            let group2value = group2Entries.reduce((a, b) => a + b, group1value)
+            let group3value = group2Entries.reduce((a, b) => a + b, group2value)
+            let group4value = group2Entries.reduce((a, b) => a + b, group3value)
+            let group5value = group2Entries.reduce((a, b) => a + b, group4value)
+            let group6value = group2Entries.reduce((a, b) => a + b, group5value)
+
+            // find value for the month data point by taking total sum of moodCategoryId and dividing by total entries so far
+            let janLog = (group1value / (group1Entries.length));
+            let febLog = (group2value / (group1Entries.length + group2Entries.length));
+            let marLog = (group3value / (group1Entries.length + group2Entries.length + group3Entries.length))
+            let aprLog = (group4value / (group1Entries.length + group2Entries.length + group3Entries.length + group4Entries.length))
+            let mayLog = (group5value / (group1Entries.length + group2Entries.length + group3Entries.length + group4Entries.length + group5Entries.length))
+            let junLog = (group6value / (group1Entries.length + group2Entries.length + group3Entries.length + group4Entries.length + group5Entries.length + group6Entries.length))
+
+            const linedata = [janLog, febLog, marLog, aprLog, mayLog, junLog]
+
+            this.setState({ lineData: linedata })
+        }
+
     }
 
     render() {
@@ -423,6 +486,7 @@ class Home extends Component {
                                 donutData={this.state.donutData}
                                 weeksEntries={this.state.weeksEntries}
                                 monthsEntries={this.state.monthsEntries}
+                                lineData={this.state.lineData}
                             />
                         </>)
                         : (<Redirect to="/login" />)

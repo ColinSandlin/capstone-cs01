@@ -116,6 +116,10 @@
   article.card:hover .infos .seats, article.card:hover .infos .txt, article.card:hover .infos .details {
     opacity: 1;
   }
+
+  .add-new-cm {
+    font-weight: 500;
+  }
   
 /* Media queries */
 /* Tablet */
@@ -165,3 +169,4 @@
         border-radius: 3px;
       }
   }
+

@@ -265,15 +265,6 @@
       "moodCategoryId": 2
     },
     {
-      "id": 9,
-      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Do Something Kind for a Friend",
-      "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "info": "Doing something for others removes the focus from your own struggles",
-      "info2": "Link to ideas",
-      "moodCategoryId": 1
-    },
-    {
       "id": 4,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
       "title": "Glad to hear you are feeling",
@@ -290,24 +281,6 @@
       "info": "Way to keep your mental health on track!",
       "info2": "placeholder line two",
       "moodCategoryId": 4
-    },
-    {
-      "id": 6,
-      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "test 2",
-      "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "info": "Way to keep your mental health on track!",
-      "info2": "placeholder line two",
-      "moodCategoryId": 5
-    },
-    {
-      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "New Cm",
-      "url": "asdf",
-      "info": "asasf",
-      "info2": "asdf",
-      "moodCategoryId": 1,
-      "id": 7
     },
     {
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
@@ -431,6 +404,30 @@
       "selectedMood": "Kind",
       "description": "Kind of scary",
       "id": 14
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:28:52.277Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Joyful",
+      "description": "Joy to the world",
+      "id": 15
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:40:34.664Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Content",
+      "description": "Soy contento",
+      "id": 16
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-17T14:46:27.847Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Powerless",
+      "description": "POWAAA",
+      "id": 17
     }
   ]
 }

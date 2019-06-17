@@ -152,6 +152,9 @@ class Home extends Component {
         this.setState({ description: e.target.value })
     }
 
+    showAllCards = () => {
+        this.setState({ moodCategoryId: "" })
+    }
 
     resetState = () => {
         const origState = {
@@ -311,7 +314,7 @@ class Home extends Component {
                                 addModal={this.state.addModal}
                                 editModal={this.state.editModal}
                                 loadCms={this.loadCms}
-
+                                showAllCards={this.showAllCards}
                             />
                         </>)
                         : (<Redirect to="/login" />)

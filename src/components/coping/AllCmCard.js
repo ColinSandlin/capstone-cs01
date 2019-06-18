@@ -81,7 +81,7 @@ export default class AllCmCard extends Component {
                     <div className="thumb" style={{ backgroundImage: `url(${this.props.copingMechUrl})` }}></div>
                     <div className="infos">
                         <p className="double-click-message">Double-click the card to edit or delete</p>
-                        <h2 className="title">{this.props.copingMechTitle}</h2>
+                        {/* <h2 className="title">{this.props.copingMechTitle}</h2> */}
                         <h3 className="date">{this.props.copingMechInfo}</h3>
                         <p className="txt">{this.props.copingMechInfo2}</p>
                         <br></br>

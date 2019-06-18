@@ -151,3 +151,28 @@ button.dropdown-item.dropdown-item {
 .colin-input {
   color: #2A404A;
 }
+
+.greeting {
+  font-weight: 700px;
+  font-size: 1.25em;
+}
+
+#home-logo {
+  width: 25vw;
+  margin-top: 30vh;
+  margin-left: 10px;
+}
+
+/* .home-tagline {
+  margin-top: 0px;
+  font-size: 1.1em;
+  margin-left: 120px;
+  
+} */
+
+input.colin-input {
+  width: 50vw;
+  border: 1px solid rgb(79, 109, 116);
+  padding: 15px;
+  border-radius: 4px;
+}

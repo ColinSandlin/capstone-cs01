@@ -3,6 +3,7 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input } from 'rea
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { IconContext } from "react-icons";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
+import { TiSocialTwitter } from "react-icons/ti"
 import Regulatecss from "./Regulate.css"
 
 

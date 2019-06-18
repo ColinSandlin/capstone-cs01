@@ -5,7 +5,8 @@ import { appId, appCode } from "./hiddenKey"
 const db = "http://localhost:8088"
 
 let thisUser = getUserFromLocalStorage()
-let currentUser = thisUser.id
+
+let currentUser = (thisUser) ? (thisUser.id) : ("")
 
 
 const API = {

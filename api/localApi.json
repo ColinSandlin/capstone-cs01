@@ -189,47 +189,83 @@
     {
       "id": 1,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Call Your Mom!",
+      "title": "5-4-3-2-1 Grounding Exercise",
       "url": "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "info": "Hit her up and tell her you need someone to talk to",
-      "info2": "(205)253-2125",
+      "info": "Slow it down.",
+      "info2": "Name 5 things I can see, 4 things I can touch, 3 things I can hear, 2 things I can smell, 1 thing I can do to distract self or 1 thing I am doing well",
       "moodCategoryId": 1
     },
     {
       "id": 2,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Go to the Gym",
+      "title": "Practice Gratitude",
       "url": "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "info": "Pumping some iron always helps you refocus, think, and regain energy.",
-      "info2": "YMCA Green Hills",
-      "moodCategoryId": 4
+      "info": "Researchers have found that being grateful can improve your state of mind. ",
+      "info2": "What are you grateful for today?",
+      "moodCategoryId": 3
     },
     {
       "id": 3,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Do Something Kind for a Friend!!!",
+      "title": "Glad to hear you are feeling",
       "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "info": "Doing something for others removes the focus from your own struggles",
-      "info2": "Link to ideas",
-      "moodCategoryId": 2
+      "info": "Take some time to think about what is contributing to that.",
+      "info2": "Keep checking in!",
+      "moodCategoryId": 4
     },
     {
       "id": 4,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Glad to hear you are feeling",
+      "title": "Outstanding! Glad to hear you are feeling",
       "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       "info": "Way to keep your mental health on track!",
-      "info2": "placeholder line two",
+      "info2": "Keep checking in!",
       "moodCategoryId": 5
     },
     {
       "id": 5,
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
-      "title": "Glad to hear you are feeling",
+      "title": "Go for a Walk",
       "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "info": "Way to keep your mental health on track!",
-      "info2": "placeholder line two",
-      "moodCategoryId": 4
+      "info": "Get moving for at least 15 minutes",
+      "info2": "Endorphins!",
+      "moodCategoryId": 3
+    },
+    {
+      "id": 6,
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "title": "Go for a Walk",
+      "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "Get moving for at least 15 minutes",
+      "info2": "Endorphins!",
+      "moodCategoryId": 2
+    },
+    {
+      "id": 7,
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "title": "Reach out to a friend",
+      "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "Navigate to your ‘find help’ to see list of close contacts.",
+      "info2": "JB has known you for 20 years. Hit him up.",
+      "moodCategoryId": 1
+    },
+    {
+      "id": 8,
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "title": "Find a pickup basketball game",
+      "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "Tend to the part of yourself that needs connection and activity.",
+      "info2": "Check out the local YMCA or the Meetup app",
+      "moodCategoryId": 2
+    },
+    {
+      "id": 9,
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "title": "Practice Mindfulness",
+      "url": "https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "info": "It can be beneficial to approach your emotions with a nonjudgemental attitude.",
+      "info2": "Fully feeling it and being curious about your emotions can make room for healing.",
+      "moodCategoryId": 2
     }
   ],
   "loggedEntries": [
@@ -440,6 +476,30 @@
       "selectedMood": "Self Critical",
       "description": "asdfasdf",
       "id": 26
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-05-15T16:42:34.021Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Thankful",
+      "description": "Today was a good day because I got to spend time with family, play at the pool, and get outside.",
+      "id": 27
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-05-15T16:42:34.021Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Thankful",
+      "description": "Today was a good day because I got to spend time with family, play at the pool, and get outside.",
+      "id": 28
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-05-15T16:42:34.021Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Thankful",
+      "description": "Today was a good day because I got to spend time with family, play at the pool, and get outside.",
+      "id": 29
     }
   ]
 }

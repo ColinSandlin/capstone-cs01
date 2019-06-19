@@ -35,7 +35,7 @@ export default class TopNav extends React.Component {
                         <img src={secondaryLogo} className="secondaryLogo" alt="logo" />
                     </div>
                     <div className="prof-pic-container">
-                        <img src={this.props.user.profPic} className="prof-pic" alt="prof-pic" ></img>
+                        <img src={(this.props.user.profPic) ? (this.props.user.profPic) : ("http://petmedmd.com/images/user-profile.png")} className="prof-pic" alt="prof-pic" ></img>
                         <p>{this.props.user.username}</p>
                     </div>
                     <NavLink to="/regulate/new" className="menuItem" activeClassName="currentLink" onClick={this.props.resetState}><FiSun style={{ marginRight: "10px", marginBottom: "5px" }} />Check in</NavLink>

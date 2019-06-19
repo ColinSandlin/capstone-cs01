@@ -258,7 +258,8 @@ class Home extends Component {
             url: this.state.addUrl,
             info: this.state.addInfo,
             info2: this.state.addInfo2,
-            moodCategoryId: this.state.addCopingMoodCategoryId
+            moodCategoryId: this.state.addCopingMoodCategoryId,
+            score: 0
         }
         console.log("new entry", newObj)
         API.submitMech(newObj)
@@ -275,6 +276,16 @@ class Home extends Component {
         }
         API.getAllCopingMechs()
             .then(copingMechs => newState.allCopingMechs = copingMechs)
+            .then(() => API.getSpecificCopingMech(5))
+            .then(greatCopingMechs => newState.greatCopingMechs = greatCopingMechs)
+            .then(() => API.getSpecificCopingMech(4))
+            .then(goodCopingMechs => newState.goodCopingMechs = goodCopingMechs)
+            .then(() => API.getSpecificCopingMech(3))
+            .then(okayCopingMechs => newState.okayCopingMechs = okayCopingMechs)
+            .then(() => API.getSpecificCopingMech(2))
+            .then(notSoGreatCopingMechs => newState.notSoGreatCopingMechs = notSoGreatCopingMechs)
+            .then(() => API.getSpecificCopingMech(1))
+            .then(badCopingMechs => newState.badCopingMechs = badCopingMechs)
             .then(() => this.setState(newState))
     }
 
@@ -381,8 +392,8 @@ class Home extends Component {
 
             this.setState({ lineData: linedata })
         }
-
     }
+
 
     render() {
         return (
@@ -466,6 +477,7 @@ class Home extends Component {
                                 editModal={this.state.editModal}
                                 loadCms={this.loadCms}
                                 showAllCards={this.showAllCards}
+
                             />
                         </>)
                         : (<Redirect to="/login" />)

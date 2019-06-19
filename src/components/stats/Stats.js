@@ -8,7 +8,7 @@ export default class Stats extends React.Component {
 
     assignData = () => {
         const lineInfo = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
             datasets: [
                 {
                     label: 'Average Mood',
@@ -25,33 +25,60 @@ export default class Stats extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="overall-stats-container">
                 <div className="quick-hits-container">
                     <div className="quick-hit">
-                        <h4>{this.props.allEntries.length}</h4>
-                        <p>Total Number of Entries</p>
+                        <h4 className="stat-number">{this.props.allEntries.length}</h4>
+                        <p>Total Entries</p>
                     </div>
+                    <div className="stats-divider"></div>
                     <div className="quick-hit">
-                        <h4>{this.props.weeksEntries.length}</h4>
+                        <h4 className="stat-number">{this.props.weeksEntries.length}</h4>
                         <p>Entries this Week</p>
                     </div>
+                    <div className="stats-divider"></div>
                     <div className="quick-hit">
-                        <h4>{this.props.monthsEntries.length}</h4>
+                        <h4 className="stat-number">{this.props.monthsEntries.length}</h4>
                         <p>Entries this Month</p>
                     </div>
                 </div>
-                <div>
-                    <Doughnut data={this.props.donutData} />
-                </div>
-                <div style={{ marginTop: '200px' }}>
-                    <Line data={this.assignData}
+                <div className="donut-container">
+                    <h2>Breakdown of Check ins</h2>
+                    <Doughnut data={this.props.donutData}
+                        height={80}
                         options={{
+                            responsive: true,
+                            maintainAspectRatio: true,
                             legend: {
                                 display: false,
                             },
+                            elements: {
+                                arc: {
+                                    borderWidth: 0
+                                }
+                            }
+                        }} />
+                </div>
+                <div className="line-container">
+                    <h2>Average Mood (last 6 months)</h2>
+                    <Line
+                        className="linegraph"
+                        data={this.assignData}
+                        options={{
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            legend: {
+                                display: false,
+                                labels: {
+                                    fontColor: 'black'
+                                }
+                            },
                             scales: {
                                 xAxes: [{
-                                    ticks: { display: true },
+                                    ticks: {
+                                        display: true,
+                                        fontFamily: 'Roboto Condensed'
+                                    },
                                     gridLines: {
                                         display: false,
                                         drawBorder: true
@@ -62,21 +89,22 @@ export default class Stats extends React.Component {
                                         display: true,
                                         callback: function (label) {
                                             switch (label) {
-                                                case 0:
-                                                    return 'Bad';
                                                 case 1:
-                                                    return 'Not Great';
+                                                    return 'Bad';
                                                 case 2:
-                                                    return 'Neutral';
+                                                    return 'Not Great';
                                                 case 3:
-                                                    return 'Good';
+                                                    return 'Neutral';
                                                 case 4:
+                                                    return 'Good';
+                                                case 5:
                                                     return 'Great';
                                             }
                                         },
                                         max: 5,
                                         min: 1,
                                         stepSize: 1,
+                                        fontFamily: 'Roboto Condensed'
                                     },
                                     gridLines: {
                                         display: false,
@@ -85,12 +113,13 @@ export default class Stats extends React.Component {
                                 }]
                             },
                             title: {
-                                display: true,
+                                display: false,
                                 text: "Average Mood [Past 6 Months]"
                             },
+
                         }} />
                 </div>
-            </>
+            </div >
         );
     }
 }

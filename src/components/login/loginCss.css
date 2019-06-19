@@ -3,8 +3,8 @@ form.ui.form.login-form {
     flex-direction: column;
     border-radius: 5px;
     padding: 30px;
-    width: 50vw;
-    height: 50vh;
+    width: 30vw;
+    height: 60vh;
     align-items: center;
     margin-top: 25vh;
 }
@@ -22,6 +22,10 @@ form.ui.form.login-form {
 
 .field:last-child {
    margin-top: 20px;
+}
+
+.field:nth-child(2) {
+    margin-top: 50px;
 }
 
 input[type="email"] {
@@ -90,8 +94,13 @@ form.ui.form.register-form {
     flex-direction: column;
     border-radius: 5px;
     padding: 30px;
-    width: 50vw;
+    width: 30vw;
     height: 55vh;
     align-items: center;
     margin-top: 25vh;
+}
+
+
+form.ui.form.register-form button.ui.button {
+    margin-top: 60px;
 }

@@ -123,7 +123,7 @@ export default class Coping extends Component {
                             </FormGroup>
                         </Form >
                     </ModalBody>
-                    <div id="cm-btn-container">
+                    <div id="cm-btn-container" style={{ marginBottom: '20px' }}>
                         <p id="submit-cm-btn" onClick={this.props.submitNewCmEntry} style={{ marginLeft: '20px' }}><FiCheck />  Submit</p>
                     </div>
 

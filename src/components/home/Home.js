@@ -284,7 +284,7 @@ class Home extends Component {
                 labels: ['Great', 'Good', 'Neutral', 'Not Great', 'Bad'],
                 datasets: [{
                     data: [this.state.cat5Entries.length, this.state.cat4Entries.length, this.state.cat3Entries.length, this.state.cat2Entries.length, this.state.cat1Entries.length],
-                    backgroundColor: ['#8FC6BB', '#BADED2', '#F4D28E', '#E8C5C1', '#DB968D']
+                    backgroundColor: ['#8FC6BB', '#D1E8E0', '#F4D28E', '#E8C5C1', '#DB968D']
                 }]
             }
 
@@ -392,7 +392,7 @@ class Home extends Component {
                 <Route exact path="/regulate" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav />
+                            <TopNav resetState={this.resetState} />
                             <Regulate {...props} {...this.props} user={this.state.user} onLogout={logout} resetState={this.resetState} />
                         </>)
                         : (<Redirect to="/login" />)
@@ -400,7 +400,7 @@ class Home extends Component {
                 <Route exact path="/regulate/new" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav />
+                            <TopNav resetState={this.resetState} />
                             <NewRegulate
                                 {...props}
                                 {...this.props}
@@ -428,7 +428,7 @@ class Home extends Component {
                 <Route exact path="/entries" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav />
+                            <TopNav resetState={this.resetState} />
                             <Entries
                                 {...props}
                                 user={this.state.user}
@@ -440,7 +440,7 @@ class Home extends Component {
                 <Route exact path="/coping" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav />
+                            <TopNav resetState={this.resetState} />
                             <Coping
                                 {...props}
                                 {...this.props}
@@ -473,7 +473,7 @@ class Home extends Component {
                 <Route exact path="/stats" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav />
+                            <TopNav resetState={this.resetState} />
                             <Stats {...props}
                                 user={this.state.user}
                                 onLogout={logout}
@@ -494,7 +494,7 @@ class Home extends Component {
                 <Route exact path="/support" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav />
+                            <TopNav resetState={this.resetState} />
                             <FindHelp
                                 {...props}
                                 user={this.state.user}
@@ -507,7 +507,7 @@ class Home extends Component {
                 <Route exact path="/profile" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav />
+                            <TopNav resetState={this.resetState} />
                             <Profile {...props} user={this.state.user} onLogout={logout} />
                         </>)
                         : (<Redirect to="/login" />)

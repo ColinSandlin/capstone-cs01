@@ -13,7 +13,7 @@ import { getUserFromLocalStorage } from '../login/LoginHandler'
 
 import API from "../db/API"
 
-import { FiPlus, FiGrid } from "react-icons/fi"
+import { FiPlus, FiGrid, FiCheck } from "react-icons/fi"
 
 
 const theUserIdIs = getUserFromLocalStorage()
@@ -123,9 +123,10 @@ export default class Coping extends Component {
                             </FormGroup>
                         </Form >
                     </ModalBody>
-                    <ModalFooter>
-                        <button className="colin-button" onClick={this.props.submitNewCmEntry}>Add to the Arsenal</button>
-                    </ModalFooter>
+                    <div id="cm-btn-container">
+                        <p id="submit-cm-btn" onClick={this.props.submitNewCmEntry} style={{ marginLeft: '20px' }}><FiCheck />  Submit</p>
+                    </div>
+
                 </Modal>
             </>
         )

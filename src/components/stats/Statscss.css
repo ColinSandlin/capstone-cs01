@@ -1,5 +1,70 @@
+.overall-stats-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
 .quick-hits-container {
     display: flex;
     flex-direction: row;
-    background-color: white;
+    width: 30vw;
+    margin: auto;
+    margin-top: 10vh;
+    justify-content: center;
+    background-color: #D1E8E0;
+    border-radius: 5px;
+    flex-flow: row wrap;
+}
+
+.quick-hit {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 10px;
+    width: 200px;
+    height: 150px;
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.stats-divider {
+    width: 1px;
+    margin: 20px 0;
+    background: rgb(169, 169, 169);
+}
+
+.stat-number {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: rgb(75, 111, 128);
+    font-size: 5em;
+    letter-spacing: .1em;
+}
+
+.donut-container {
+    margin-top: 100px;
+    justify-content: center;
+    text-align: center;
+}
+
+.donut-container > h2{
+    margin-bottom: 50px;
+}
+
+.line-container {
+    margin: auto;
+    margin-top: 200px;
+    height: 1000px;
+    width: 1000px;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+
+.charts-container {
+    display: flex;
+    flex-direction: row;
 }

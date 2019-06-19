@@ -191,8 +191,8 @@
       "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
       "title": "5-4-3-2-1 Grounding Exercise",
       "url": "https://lh3.googleusercontent.com/W3ZXqhiYyD74U4VlPVhmtG2MFN6OriCKBWHl2hDAkuxEEqczM8W5-i0G6ErAW027VmZA5vvfvdceAaj_1WqlmslnNrHAZGFutJYlzo96FM9Lm-hIW7b2rFlV4Kv1Iiw0XgNxKJnm43THUIrt60POa5Mhze1WusviiMFZnCIbpn9-AX5qKa4vep7qnWYf0CR8Yvm2GiGwaCFZESvALbYkygR0wZoHnHfk8X4J4mPVDezfwNeLgpOkzGZ-AE9mZ88eLFmn4uQ1vMCyD2dKqWL2Jeb2L3vbv6UKdpplVFyruS2PLGT3iYqwAptFORp83tSCOC7eURmV-I_fZReXE-ULEgajRRbUXFKI7fmTKXIu1iP1dHawvgUphqyxVgMJbtesQAmsUz4P31zpq1l_OwSyKKIIkwTifLXdMp2VT-MdnJ2iG6jzT3Y59Rs_2Wz8VpymxqBXwT3y74E8yXhtiuWXVlgyZEI6s8Eh7JUMqBJtNDQT3EMt7ud2B67DK8_07moL1eGRRHn89uYg8XTlIB6qJPZ9Qkv7nWS0su92JuqlfxN_RXK1JQ8RvA_myDOIMxlLqdjbfIenz0h8mC9GMNyNvVBPujOwagIs3HjJVzOAh0XLiAdlTqTYvEPjK2Ve4n12Xfbrrp5c1zs4xfHEdYK0klacEPnXwCAA=s2196-no",
-      "info": "Slow it down.",
-      "info2": "Name 5 things I can see, 4 things I can touch, 3 things I can hear, 2 things I can smell, 1 thing I can do to distract self or 1 thing I am doing well",
+      "info": "Slow it down",
+      "info2": "Name 5 things I can see, 4 things I can touch, 3 things I can hear, 2 things I can smell, 1 thing I can do to distract myself or 1 thing I am doing well",
       "moodCategoryId": 1
     },
     {
@@ -500,6 +500,38 @@
       "selectedMood": "Thankful",
       "description": "Today was a good day because I got to spend time with family, play at the pool, and get outside.",
       "id": 29
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-18T19:48:24.736Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Peaceful",
+      "description": "I'm at a good spot on my app, so now I can relax a little.",
+      "id": 30
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-19T00:38:11.689Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Isolated",
+      "description": "Because I am on an island",
+      "id": 32
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-19T15:36:45.365Z",
+      "moodCategoryId": 3,
+      "selectedMood": "Bored",
+      "description": "CSS styling can get to be monotonous",
+      "id": 33
+    },
+    {
+      "userId": "xjPnoylYEMhbfpQI5XKYV8cRuGf2",
+      "dateLogged": "2019-06-19T15:52:37.565Z",
+      "moodCategoryId": 5,
+      "selectedMood": "Peaceful",
+      "description": "Peace homies",
+      "id": 34
     }
   ]
 }

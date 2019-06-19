@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FiEdit, FiXSquare } from "react-icons/fi";
+import { FiEdit, FiXSquare, FiCheck, FiX } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import API from "../db/API";
 import { getUserFromLocalStorage } from '../login/LoginHandler'
@@ -81,7 +81,7 @@ export default class AllCmCard extends Component {
                     <div className="thumb" style={{ backgroundImage: `url(${this.props.copingMechUrl})` }}></div>
                     <div className="infos">
                         <p className="double-click-message">Double-click the card to edit or delete</p>
-                        {/* <h2 className="title">{this.props.copingMechTitle}</h2> */}
+
                         <h3 className="date">{this.props.copingMechInfo}</h3>
                         <p className="txt">{this.props.copingMechInfo2}</p>
                         <br></br>
@@ -127,8 +127,10 @@ export default class AllCmCard extends Component {
                                 </Input>
                             </FormGroup>
                         </Form >
-                        <button className="colin-button" onClick={() => this.updateCmForm(this.props.copingMechId)}>Submit Edit</button>
-                        <button className="delete-button" onClick={() => this.deleteCm(this.props.copingMechId)}>Delete</button>
+                        <div id="cm-btn-container">
+                            <p id="submit-cm-btn" onClick={() => this.updateCmForm(this.props.copingMechId)}><FiCheck />  Submit</p>
+                            <p id="delete-cm-btn" onClick={() => this.deleteCm(this.props.copingMechId)}><FiX />  Delete</p>
+                        </div>
                     </ModalBody>
                 </Modal>
             </>

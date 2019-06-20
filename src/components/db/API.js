@@ -80,6 +80,20 @@ const API = {
     getSpecificEntryCategory: (value) => {
         return fetch(`${db}/loggedEntries/?userId=${currentUser}&moodCategoryId=${value}`)
             .then(results => results.json())
+    },
+    getLast5Entries: () => {
+        return fetch(`${db}/loggedEntries/?userId=${currentUser}&_sort=dateLogged&_order=desc&_limit=5`)
+            .then(results => results.json())
+    },
+    sendEmail: (obj) => {
+        return fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        })
+        // .then(e => e.json())
     }
 }
 

@@ -5,6 +5,8 @@ import { IconContext } from "react-icons";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
 import { TiSocialTwitter } from "react-icons/ti"
 import Regulatecss from "./Regulate.css"
+import checkin from "../../checkin-15.svg"
+
 
 
 
@@ -29,9 +31,9 @@ class NewRegulate extends Component {
 
             <>
                 <div className="main-container">
-                    <h2 className="colin-heading" >Check in.</h2>
+                    <img id="checkin-logo" src={checkin} alt="regulate-logo"></img>
                     <Dropdown isOpen={this.props.dropdownOpen} toggle={this.props.toggleDropdown} className="dropdown-container" style={{ marginTop: '20vh' }} >
-                        <DropdownToggle className="regulate-dropdown" style={{ display: 'flex', color: "#4F6D74", flexDirection: 'row', backgroundColor: 'transparent', padding: '10px', width: '50%', justifySelf: 'center', margin: 'auto', marginTop: '30px', border: '1px solid #4F6D74' }}>
+                        <DropdownToggle className="regulate-dropdown" style={{ display: 'flex', color: "#4F6D74", flexDirection: 'row', backgroundColor: 'transparent', padding: '10px', width: '30vw', justifySelf: 'center', margin: 'auto', marginTop: '30px', border: '1px solid #4F6D74' }}>
                             <div className="button-container">
                                 <div style={{ justifySelf: 'flex-start' }}>
                                     <p id="dropdown-lable">{this.props.label}</p>
@@ -87,7 +89,7 @@ class NewRegulate extends Component {
 
                     <input className="colin-input" type="text" placeholder="Notes - try to keep it shorter than a tweet" onChange={(e) => this.props.changeDesc(e)}></input>
                     <div className="main">
-                        <button style={{ outline: 0 }} className="button" onClick={this.props.logNewEntry} >Submit</button>
+                        <button style={{ outline: 0 }} className="button" id="newreg-btn" onClick={this.props.logNewEntry} >Submit</button>
                         <div className={["loader", (this.props.loader ? "active" : '')].join(' ')} onAnimationEnd={() => this.setState({ check: true })}>
                             <div className={["check", (this.state.check ? "active" : '')].join(' ')}>
                                 <FiCheck className="check-one" />

@@ -14,6 +14,8 @@ import Entries from '../entries/Entries'
 import { getUserFromLocalStorage, logout } from '../login/LoginHandler'
 import API from "../db/API"
 import moment from "moment";
+import * as emailjs from "emailjs-com"
+import { serviceId, userId, accessToken, templateId } from "../db/hiddenKey"
 
 
 let greatArray;
@@ -231,9 +233,40 @@ class Home extends Component {
             .then(() => this.getDonutData())
             .then(() => this.entriesThisWeek())
             .then(() => this.entriesThisMonth())
+
+            //
+            .then(() => this.checkLast5Entries())
+
             // after the animation ends, redirect to coping mechanisms
             .then(() => setTimeout(() => this.props.history.push('/coping'), 3200))
     }
+
+    checkLast5Entries = () => {
+        API.getLast5Entries()
+            .then(entries => {
+                let last5Array = entries.filter(entry => entry.moodCategoryId <= 2)
+                console.log(last5Array)
+                return last5Array;
+            })
+            .then(last5Array => {
+                if (last5Array.length === 5) {
+                    let data = {
+                        service_id: serviceId,
+                        template_id: templateId,
+                        user_id: userId,
+                        template_params: {
+                            'to_name': 'Shelby',
+                            'from_name': 'Colin Sandlin'
+                        }
+                    }
+                    API.sendEmail(data)
+                } else {
+                    console.log("youre good")
+                }
+            })
+    }
+
+    // serviceID, userID, accessToken, templateID
 
     select = (event, value) => {
         this.setState({
@@ -258,7 +291,8 @@ class Home extends Component {
             url: this.state.addUrl,
             info: this.state.addInfo,
             info2: this.state.addInfo2,
-            moodCategoryId: this.state.addCopingMoodCategoryId
+            moodCategoryId: this.state.addCopingMoodCategoryId,
+            score: 0
         }
         console.log("new entry", newObj)
         API.submitMech(newObj)
@@ -275,6 +309,16 @@ class Home extends Component {
         }
         API.getAllCopingMechs()
             .then(copingMechs => newState.allCopingMechs = copingMechs)
+            .then(() => API.getSpecificCopingMech(5))
+            .then(greatCopingMechs => newState.greatCopingMechs = greatCopingMechs)
+            .then(() => API.getSpecificCopingMech(4))
+            .then(goodCopingMechs => newState.goodCopingMechs = goodCopingMechs)
+            .then(() => API.getSpecificCopingMech(3))
+            .then(okayCopingMechs => newState.okayCopingMechs = okayCopingMechs)
+            .then(() => API.getSpecificCopingMech(2))
+            .then(notSoGreatCopingMechs => newState.notSoGreatCopingMechs = notSoGreatCopingMechs)
+            .then(() => API.getSpecificCopingMech(1))
+            .then(badCopingMechs => newState.badCopingMechs = badCopingMechs)
             .then(() => this.setState(newState))
     }
 
@@ -284,7 +328,7 @@ class Home extends Component {
                 labels: ['Great', 'Good', 'Neutral', 'Not Great', 'Bad'],
                 datasets: [{
                     data: [this.state.cat5Entries.length, this.state.cat4Entries.length, this.state.cat3Entries.length, this.state.cat2Entries.length, this.state.cat1Entries.length],
-                    backgroundColor: ['#8FC6BB', '#D1E8E0', '#F4D28E', '#E8C5C1', '#DB968D']
+                    backgroundColor: ['#8FC6BB', '#BADED2', '#F4D28E', '#E8C5C1', '#DB968D']
                 }]
             }
 
@@ -381,8 +425,8 @@ class Home extends Component {
 
             this.setState({ lineData: linedata })
         }
-
     }
+
 
     render() {
         return (
@@ -392,7 +436,7 @@ class Home extends Component {
                 <Route exact path="/regulate" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav resetState={this.resetState} />
+                            <TopNav resetState={this.resetState} user={this.state.user} />
                             <Regulate {...props} {...this.props} user={this.state.user} onLogout={logout} resetState={this.resetState} />
                         </>)
                         : (<Redirect to="/login" />)
@@ -400,7 +444,7 @@ class Home extends Component {
                 <Route exact path="/regulate/new" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav resetState={this.resetState} />
+                            <TopNav resetState={this.resetState} user={this.state.user} />
                             <NewRegulate
                                 {...props}
                                 {...this.props}
@@ -428,7 +472,7 @@ class Home extends Component {
                 <Route exact path="/entries" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav resetState={this.resetState} />
+                            <TopNav resetState={this.resetState} user={this.state.user} />
                             <Entries
                                 {...props}
                                 user={this.state.user}
@@ -440,7 +484,7 @@ class Home extends Component {
                 <Route exact path="/coping" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav resetState={this.resetState} />
+                            <TopNav resetState={this.resetState} user={this.state.user} />
                             <Coping
                                 {...props}
                                 {...this.props}
@@ -466,6 +510,7 @@ class Home extends Component {
                                 editModal={this.state.editModal}
                                 loadCms={this.loadCms}
                                 showAllCards={this.showAllCards}
+
                             />
                         </>)
                         : (<Redirect to="/login" />)
@@ -473,7 +518,7 @@ class Home extends Component {
                 <Route exact path="/stats" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav resetState={this.resetState} />
+                            <TopNav resetState={this.resetState} user={this.state.user} />
                             <Stats {...props}
                                 user={this.state.user}
                                 onLogout={logout}
@@ -494,7 +539,7 @@ class Home extends Component {
                 <Route exact path="/support" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav resetState={this.resetState} />
+                            <TopNav resetState={this.resetState} user={this.state.user} />
                             <FindHelp
                                 {...props}
                                 user={this.state.user}
@@ -507,7 +552,7 @@ class Home extends Component {
                 <Route exact path="/profile" render={(props) => {
                     return this.state.user ? (
                         <>
-                            <TopNav resetState={this.resetState} />
+                            <TopNav resetState={this.resetState} user={this.state.user} />
                             <Profile {...props} user={this.state.user} onLogout={logout} />
                         </>)
                         : (<Redirect to="/login" />)

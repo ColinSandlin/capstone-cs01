@@ -7,6 +7,7 @@ import OkayCmCard from './OkayCmCard'
 import NotSoGreatCmCard from './NotSoGreatCmCard'
 import BadCmCard from './BadCmCard'
 import AllCmCard from './AllCmCard'
+import GenericCmCard from './GenericCmCard'
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import cardCss from './cardCss.css'
 import { getUserFromLocalStorage } from '../login/LoginHandler'
@@ -21,9 +22,8 @@ const theUserIdIs = getUserFromLocalStorage()
 export default class Coping extends Component {
 
     state = {
-        userId: theUserIdIs.id
+        userId: theUserIdIs.id,
     }
-
 
 
 
@@ -44,27 +44,27 @@ export default class Coping extends Component {
                     {
                         (this.props.moodCategoryId === 5) ? (
                             this.props.greatCopingMechs.map(copingMech => {
-                                return <GreatCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} />
+                                return <GenericCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} copingMechScore={copingMech.score} loadCms={this.props.loadCms} />
                             })
                         ) :
                             (this.props.moodCategoryId === 4) ? (
                                 this.props.goodCopingMechs.map(copingMech => {
-                                    return <GoodCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} />
+                                    return <GenericCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} copingMechScore={copingMech.score} loadCms={this.props.loadCms} />
                                 })
                             ) :
                                 (this.props.moodCategoryId === 3) ? (
                                     this.props.okayCopingMechs.map(copingMech => {
-                                        return <OkayCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} />
+                                        return <GenericCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} copingMechScore={copingMech.score} loadCms={this.props.loadCms} />
                                     })
                                 ) :
                                     (this.props.moodCategoryId === 2) ? (
                                         this.props.notSoGreatCopingMechs.map(copingMech => {
-                                            return <NotSoGreatCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} />
+                                            return <GenericCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} copingMechScore={copingMech.score} loadCms={this.props.loadCms} />
                                         })
                                     ) :
                                         (this.props.moodCategoryId === 1) ? (
                                             this.props.badCopingMechs.map(copingMech => {
-                                                return <BadCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} />
+                                                return <GenericCmCard key={copingMech.id} copingMechId={copingMech.id} copingMechUrl={copingMech.url} copingMechTitle={copingMech.title} copingMechInfo={copingMech.info} copingMechInfo2={copingMech.info2} selectedMood={this.props.selectedMood} copingMechScore={copingMech.score} loadCms={this.props.loadCms} />
                                             })
                                         ) : (this.props.moodCategoryId === "" || this.props.moodCategoryId === undefined) ? (
                                             this.props.allCopingMechs.map(copingMech => {
@@ -82,7 +82,8 @@ export default class Coping extends Component {
                                                     copingLabel={this.props.copingLabel}
                                                     dropdownOpen={this.props.dropdownOpen}
                                                     editCopingLabel={this.props.editCopingLabel}
-                                                    loadCms={this.props.loadCms} />
+                                                    loadCms={this.props.loadCms}
+                                                    copingMechScore={copingMech.score} />
                                             })
                                         ) : null
                     }
@@ -123,7 +124,7 @@ export default class Coping extends Component {
                             </FormGroup>
                         </Form >
                     </ModalBody>
-                    <div id="cm-btn-container">
+                    <div id="cm-btn-container" style={{ marginBottom: '20px' }}>
                         <p id="submit-cm-btn" onClick={this.props.submitNewCmEntry} style={{ marginLeft: '20px' }}><FiCheck />  Submit</p>
                     </div>
 

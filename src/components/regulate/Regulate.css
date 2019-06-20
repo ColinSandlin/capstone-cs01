@@ -123,17 +123,17 @@ h2.colin-heading {
   letter-spacing: 0em;
   font-size: 4em;
   color: #2A404A;
+  transform: translateY(200px);
 }
 
 #dropdown-menu {
   background-color: #D1E8E0;
   border: none;
-  margin-left: 23%;
+  margin-left: 34.7vw;
   border-radius: none;
-  width: 50%;
+  width: 30.2vw;
   margin-top: 10px;
   overflow-x: hidden;
-  color: red;
 }
 
 button.dropdown-item.dropdown-item {
@@ -171,8 +171,18 @@ button.dropdown-item.dropdown-item {
 } */
 
 input.colin-input {
-  width: 50vw;
+  width: 30vw;
   border: 1px solid rgb(79, 109, 116);
   padding: 15px;
   border-radius: 4px;
+}
+
+#checkin-logo {
+  width: 10vw;
+  margin: auto;
+  transform: translateY(225px)
+}
+
+#newreg-btn {
+  margin-top: 20px;
 }

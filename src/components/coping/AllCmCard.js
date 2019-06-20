@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FiEdit, FiXSquare, FiCheck, FiX } from "react-icons/fi";
+import { FiEdit, FiXSquare, FiCheck, FiX, FiArrowUpCircle, FiArrowDownCircle } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import API from "../db/API";
 import { getUserFromLocalStorage } from '../login/LoginHandler'
@@ -24,7 +24,9 @@ export default class AllCmCard extends Component {
         editInfo: this.props.copingMechInfo,
         editInfo2: this.props.copingMechInfo2,
         editCopingLabel: "Select a mood category for this coping mechanism",
-        editCopingMoodCategoryId: this.props.copingMechMoodCategory
+        editCopingMoodCategoryId: this.props.copingMechMoodCategory,
+        upvote: false,
+        downvote: false,
     }
 
     handleFieldChange = evt => {
@@ -73,6 +75,30 @@ export default class AllCmCard extends Component {
             .then(() => this.setState({ editModal: false }))
     }
 
+    upVote = (value) => {
+        const newScore = {
+            id: value,
+            score: this.props.copingMechScore + 1,
+        }
+
+        API.editCopingMech(newScore.id, newScore)
+            .then(() => this.props.loadCms())
+            .then(() => this.setState({ upvote: true }))
+    }
+
+    downVote = (value) => {
+        const newScore = {
+            id: value,
+            score: (this.props.copingMechScore <= 0) ? (0) : (this.props.copingMechScore - 1),
+        }
+
+        API.editCopingMech(newScore.id, newScore)
+            .then(() => this.props.loadCms())
+            .then(() => console.log("downVote allcard", this.props))
+            .then(() => this.setState({ downvote: true }))
+    }
+
+
 
     render() {
         return (
@@ -84,13 +110,13 @@ export default class AllCmCard extends Component {
 
                         <h3 className="date">{this.props.copingMechInfo}</h3>
                         <p className="txt">{this.props.copingMechInfo2}</p>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
+                        <div className="cm-score">
+                            <IconContext.Provider value={{ size: '1.25em' }} >
+                                <button className="vote-button" disabled={this.state.upvote} onClick={() => this.upVote(this.props.copingMechId)}><FiArrowUpCircle /></button>
+                                <p className="vote-text">  Rating: {this.props.copingMechScore}</p>
+                                <button className="vote-button" disabled={this.state.downvote} onClick={() => this.downVote(this.props.copingMechId)}><FiArrowDownCircle />  </button>
+                            </IconContext.Provider>
+                        </div>
                     </div>
                 </article>
                 <Modal size="lg" isOpen={this.state.editModal} className={this.props.className} toggle={this.toggleEditModal} centered={true}>

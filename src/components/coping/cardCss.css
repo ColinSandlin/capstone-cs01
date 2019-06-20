@@ -242,7 +242,47 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 1.25em;
+    font-size: 1.3em;
     color: #D3524E;
     margin-left: 5rem;
+  }
+
+  .vote-text {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.25em;
+    color: #8FC6BB !important;
+  }
+
+  .vote-button {
+    border: none;
+    background-color: transparent;
+    color: #8FC6BB !important;
+    margin-bottom: 20px;
+  }
+
+  .vote-button:focus {
+    border: none;
+    background-color: transparent;
+    color: #F4D28E !important;
+    box-shadow: none !important;
+    outline: none !important;
+
+  }
+
+  .vote-button:disabled {
+    border: none;
+    background-color: transparent;
+    color: rgb(78, 119, 138) !important;
+    box-shadow: none !important;
+    outline: none !important;
+
+  }
+
+  .cm-score {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }

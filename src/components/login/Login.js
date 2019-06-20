@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import { login } from '../login/LoginHandler'
 import loginCss from './loginCss.css'
 import logo from '../../logo.svg'
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default class Login extends Component {
     state = {
         email: '',
-        password: ''
+        password: '',
     }
 
     submit = () => {

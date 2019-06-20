@@ -177,3 +177,12 @@ input.colin-input {
   border-radius: 4px;
 }
 
+#checkin-logo {
+  width: 10vw;
+  margin: auto;
+  transform: translateY(225px)
+}
+
+#newreg-btn {
+  margin-top: 20px;
+}

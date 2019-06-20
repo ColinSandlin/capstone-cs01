@@ -86,7 +86,7 @@ export const login = (email, password) => {
             return userFromJsonServer;
         })
         .catch(error => {
-            alert('problem logging in dawg')
+            alert('There was a problem logging in.')
         });
 
 }

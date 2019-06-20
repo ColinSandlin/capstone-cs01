@@ -14,6 +14,8 @@ import Entries from '../entries/Entries'
 import { getUserFromLocalStorage, logout } from '../login/LoginHandler'
 import API from "../db/API"
 import moment from "moment";
+import * as emailjs from "emailjs-com"
+import { serviceId, userId, accessToken, templateId } from "../db/hiddenKey"
 
 
 let greatArray;
@@ -231,9 +233,40 @@ class Home extends Component {
             .then(() => this.getDonutData())
             .then(() => this.entriesThisWeek())
             .then(() => this.entriesThisMonth())
+
+            //
+            .then(() => this.checkLast5Entries())
+
             // after the animation ends, redirect to coping mechanisms
             .then(() => setTimeout(() => this.props.history.push('/coping'), 3200))
     }
+
+    checkLast5Entries = () => {
+        API.getLast5Entries()
+            .then(entries => {
+                let last5Array = entries.filter(entry => entry.moodCategoryId <= 2)
+                console.log(last5Array)
+                return last5Array;
+            })
+            .then(last5Array => {
+                if (last5Array.length === 5) {
+                    let data = {
+                        service_id: serviceId,
+                        template_id: templateId,
+                        user_id: userId,
+                        template_params: {
+                            'to_name': 'Shelby',
+                            'from_name': 'Colin Sandlin'
+                        }
+                    }
+                    API.sendEmail(data)
+                } else {
+                    console.log("youre good")
+                }
+            })
+    }
+
+    // serviceID, userID, accessToken, templateID
 
     select = (event, value) => {
         this.setState({

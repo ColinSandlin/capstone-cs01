@@ -211,7 +211,7 @@
       "info": "Researchers have found that being grateful can improve your state of mind. ",
       "info2": "What are you grateful for today?!",
       "moodCategoryId": 3,
-      "score": 10
+      "score": 11
     },
     {
       "id": 3,
@@ -582,6 +582,14 @@
       "selectedMood": "Isolated",
       "description": "Sometimes I feel like Woody is my only friend",
       "id": 36
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-06-26T18:07:09.930Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Defeated",
+      "description": "Can't quite figure out this deployment yet!",
+      "id": 37
     }
   ]
 }

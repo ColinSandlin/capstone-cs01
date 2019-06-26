@@ -32,6 +32,7 @@ export default class Login extends Component {
                         label="Email Address"
                         placeholder="username@email.com"
                         onChange={(e) => this.setState({ email: e.target.value })}
+                        style={{ backgroundColor: 'transparent' }}
                     />
                     <Form.Field
                         control="input"

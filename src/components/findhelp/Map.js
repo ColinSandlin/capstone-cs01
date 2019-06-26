@@ -29,6 +29,7 @@ export default class Map extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 let coords = position.coords;
+                console.log(coords.latitude, coords.longitude)
                 this.map.setView([coords.latitude, coords.longitude], 12);
 
 

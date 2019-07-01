@@ -2,13 +2,13 @@
 
 # Project Summary
 I created Regulate to help both clients and therapists as they work together to improve their mental health. My wife is a therapist and together we realized the need for an intuitive, intelligent application to help clients track data, recall coping techniques, and find support. Over time, this data can make a significant impact in how clients progress and manage their unique situations.
-•  A single-page app built in React with full CRUD functionality and dynamically routed via React-Router
-•  Uses Firebase for authentication, allowing each feature of the app to be tailored to a specific user
-•  Stores user “check-ins” and fetches coping mechanisms from a Firebase REST API based upon user input
-•  Utilizes Moment.js and Chartsjs to track entries over time and display data visualization
-•  Allows users to search for therapists nearby and display results on a map using Leafletjs and Herejs
-•  Incorporated Reactstrap for modal creation and custom CSS styling for all other components.
-•  Discreetly sends email notifications to user-selected contacts, telling those contacts to check in on the user after five   	   negative check-ins within one week
++  A single-page app built in React with full CRUD functionality and dynamically routed via React-Router
++  Uses Firebase for authentication, allowing each feature of the app to be tailored to a specific user
++  Stores user “check-ins” and fetches coping mechanisms from a Firebase REST API based upon user input
++  Utilizes Moment.js and Chartsjs to track entries over time and display data visualization
++  Allows users to search for therapists nearby and display results on a map using Leafletjs and Herejs
++  Incorporated Reactstrap for modal creation and custom CSS styling for all other components.
++  Discreetly sends email notifications to user-selected contacts, telling those contacts to check in on the user after five   	   negative check-ins within one week
 
 
 

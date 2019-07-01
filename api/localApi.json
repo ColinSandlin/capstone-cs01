@@ -36,6 +36,12 @@
       "username": "dude man",
       "password": "",
       "id": "qsJhNzzw0uZHUl5RwNcwfQhLTqs2"
+    },
+    {
+      "email": "troy@troy.com",
+      "username": "Troy",
+      "password": "",
+      "id": "zLoYH6qqJcdBEiQKeov0TBzv9ow2"
     }
   ],
   "moods": [
@@ -194,22 +200,12 @@
   ],
   "copingMechanisms": [
     {
-      "id": 1,
-      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2 ",
-      "title": "5-4-3-2-1 Grounding Exercise",
-      "url": "https://lh3.googleusercontent.com/W3ZXqhiYyD74U4VlPVhmtG2MFN6OriCKBWHl2hDAkuxEEqczM8W5-i0G6ErAW027VmZA5vvfvdceAaj_1WqlmslnNrHAZGFutJYlzo96FM9Lm-hIW7b2rFlV4Kv1Iiw0XgNxKJnm43THUIrt60POa5Mhze1WusviiMFZnCIbpn9-AX5qKa4vep7qnWYf0CR8Yvm2GiGwaCFZESvALbYkygR0wZoHnHfk8X4J4mPVDezfwNeLgpOkzGZ-AE9mZ88eLFmn4uQ1vMCyD2dKqWL2Jeb2L3vbv6UKdpplVFyruS2PLGT3iYqwAptFORp83tSCOC7eURmV-I_fZReXE-ULEgajRRbUXFKI7fmTKXIu1iP1dHawvgUphqyxVgMJbtesQAmsUz4P31zpq1l_OwSyKKIIkwTifLXdMp2VT-MdnJ2iG6jzT3Y59Rs_2Wz8VpymxqBXwT3y74E8yXhtiuWXVlgyZEI6s8Eh7JUMqBJtNDQT3EMt7ud2B67DK8_07moL1eGRRHn89uYg8XTlIB6qJPZ9Qkv7nWS0su92JuqlfxN_RXK1JQ8RvA_myDOIMxlLqdjbfIenz0h8mC9GMNyNvVBPujOwagIs3HjJVzOAh0XLiAdlTqTYvEPjK2Ve4n12Xfbrrp5c1zs4xfHEdYK0klacEPnXwCAA=s2196-no",
-      "info": "Slow it down",
-      "info2": "Name 5 things I can see, 4 things I can touch, 3 things I can hear, 2 things I can smell, 1 thing I can do to distract myself or 1 thing I am doing well",
-      "moodCategoryId": 1,
-      "score": 12
-    },
-    {
       "id": 2,
       "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
       "title": "Practice Gratitude",
       "url": "https://lh3.googleusercontent.com/wt_0FIVZ7wsjK_r-u7o3D6Do0kisrYQW3o44M29AyaGHB-ZNFtWpjTpn-PcOG-Y44zjFkBqS2mS3kneq3Rr_Co5fJeFie8SHXylPVOhRVBJlvUbYemLzXxAvSUwJcdHRqvzhT9e8XaiBdKw68MZvDBCvUFdqqE9qrkPGP7OYfeeZ5VKL7abpb3pxbOywmi_KjqaVQ8w8qdHvu2UjgeF7ebxpSdnp6lXnkcToEwkDLfRQYRPIV4byd665HbNVsLxbp6bjamttBQFpjXZi28puHAfZ5h0w4tJck6bxXso-LQyHDn4Rtx_FI19ygU5CthT-UzDQn4IMueWtL9zs7sQTRdZWmBOPyXN3GrBwmcK4Vg6aBbpfSEnqXSyPsvNDjWsRf4LaCM49TepEXCrLGUB1HzGjf_ASwaZiOnL0Oq4EI8NBUkDWGavosDkBtJ0EDPgb_Tl5HO66FpR82-yhGzM0VdXHL1XvUvDUT-5jfhqVmjSeDF33PWoUEh7TWszCVNtJ9v4rQ0AykrF4mLYg-17bVudnu7ptg_L2PpYUjUJgAqbz4eMtNPcWTsUOERoCgk_NG69ic4sPMSOjHslWkev9SoLGS57Z7uohNKoYpM-UBSE7vz4oe9SV6Q5D8PPiOtCo_eypa2iVIbNyk6P-0JsyIgMWRh54syoL=w2198-h2196-no",
       "info": "Researchers have found that being grateful can improve your state of mind. ",
-      "info2": "What are you grateful for today?!",
+      "info2": "What are you grateful for today",
       "moodCategoryId": 3,
       "score": 11
     },
@@ -261,7 +257,7 @@
       "info": "Navigate to ‘SUPPORT’ to see list of close contacts.",
       "info2": "JB has known you for 20 years. Hit him up.",
       "moodCategoryId": 1,
-      "score": 14
+      "score": 15
     },
     {
       "id": 8,
@@ -282,16 +278,6 @@
       "info2": "Fully feeling it and being curious about your emotions can make room for healing.",
       "moodCategoryId": 2,
       "score": 10
-    },
-    {
-      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
-      "title": "Spend time with family",
-      "url": "https://lh3.googleusercontent.com/YCCj1fgEDJFJ5geuCy5bq4FfEUZpkJaiM_isaFwELhnyBRSy5Q3pVxF9_zmx0d_cvsR2SfwJ3IIx5bqkgn5vgzAQ1Q2yhHWrN7OiFeVU6qhqA7DDjTQIaTfQ0Qw_emqtSAThAVjfTCtNMMBhPqKwzf5iN25J6CKb9Ani0qPrnPiSEQDg3yPriVcBnqUkYqkCwU93pDQ4h0Xsa3yb1DowrNKRi9fBEK0R-OQYfBzM9MJlQwZAba8T__xwSVPeIQQqcvJI6pzBhVbqMk2JdZyipP6LkPl3EUus2x7_0-Y40eZXz0ZNJMfGF7c3RnXbskgC3NDmc6-RqCbuaktme3D_VcmVOdd7D5XFUGRl36sRnrasckc8ZG4Dp5FOn4tK9ZXEtHVbVOvJIRx62KyEjKY7_997xDRGFXPimbQaxU505jtOYJAoECeph5bqNUOzMQ2vWoeKGqLOLop3MMkMMRLzH6l2GckkZOuA7QqvUPNmIRYxAyn1wJpTQNF07hcuco01S9zfg590bztl1P5tXLO4e-Cq3DuXatTf7v0DlBP_epHfuj1nA4vNcLALHi2bDJKnH5-kSirPcDhDZxze11NUHJ2RVZRWBzl5gjD3T5zRG_wHtTLcLxtEauTrTtdA3XAOwWg62E1i_GchoAY-oUJantQxdVyvM6Hh=s2196-no",
-      "info": "It always helps me feel better!!!",
-      "info2": "If you can't be there, call them!",
-      "moodCategoryId": 1,
-      "score": 1,
-      "id": 10
     }
   ],
   "loggedEntries": [
@@ -590,6 +576,94 @@
       "selectedMood": "Defeated",
       "description": "Can't quite figure out this deployment yet!",
       "id": 37
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-06-29T00:58:06.511Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Disgusted",
+      "description": "Today was a hard day",
+      "id": 38
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-06-29T00:58:22.318Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Hurt",
+      "description": "It hurts me",
+      "id": 39
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-06-29T00:58:37.084Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Self Critical",
+      "description": "Self critical is bad",
+      "id": 40
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-06-29T00:58:55.104Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Jealous",
+      "description": "Jealous",
+      "id": 41
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-06-29T01:02:01.309Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Impatient",
+      "description": "Life is not moving as quickly as I had hoped",
+      "id": 42
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-06-29T01:20:07.434Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Discouraged",
+      "description": "Life is hard",
+      "id": 43
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-07-01T15:50:31.863Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Angry",
+      "description": "Drivers in Nashville are terrible",
+      "id": 44
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-07-01T15:57:09.910Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Powerless",
+      "description": "I have no superpowers",
+      "id": 45
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-07-01T15:58:53.141Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Angry",
+      "description": "Angry that it ain't friday",
+      "id": 46
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-07-01T16:05:03.162Z",
+      "moodCategoryId": 2,
+      "selectedMood": "Isolated",
+      "description": "In the isolation chamber",
+      "id": 47
+    },
+    {
+      "userId": "Yx5yfkJWmggbDYnwWzx5ZpFrlpd2",
+      "dateLogged": "2019-07-01T16:05:43.535Z",
+      "moodCategoryId": 1,
+      "selectedMood": "Disgusted",
+      "description": "How could the bachelorette choose that dude?",
+      "id": 48
     }
   ]
 }

@@ -82,7 +82,7 @@ const API = {
             .then(results => results.json())
     },
     getLast5Entries: () => {
-        return fetch(`${db}/loggedEntries/?userId=${currentUser}&_sort=dateLogged&_order=desc&_limit=5`)
+        return fetch(`${db}/loggedEntries/?userId=${currentUser}&_sort=id&_order=desc&_limit=5`)
             .then(results => results.json())
     },
     sendEmail: (obj) => {

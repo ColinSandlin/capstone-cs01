@@ -255,7 +255,7 @@ class Home extends Component {
                         template_id: templateId,
                         user_id: userId,
                         template_params: {
-                            'to_name': 'Shelby',
+                            'to_name': 'Cohort 32',
                             'from_name': 'Colin Sandlin'
                         }
                     }

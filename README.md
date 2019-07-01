@@ -1,4 +1,4 @@
-<a href="https://firebasestorage.googleapis.com/v0/b/colins-capstone-1558565262749.appspot.com/o/iFeel_Branding-04.png?alt=media&token=418a7273-3eff-4864-bcb7-9842ce9b6108" border="0"></a>
+<img src="https://firebasestorage.googleapis.com/v0/b/colins-capstone-1558565262749.appspot.com/o/iFeel_Branding-04.png?alt=media&token=418a7273-3eff-4864-bcb7-9842ce9b6108" alt="i-Feel-Branding-08" border="0">
 
 ## Project Proposal
 
